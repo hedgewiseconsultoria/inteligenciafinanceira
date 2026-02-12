@@ -6,61 +6,27 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FinanceAI — Controle Financeiro com IA, sem Burocracia</title>
+  <title>FinanceAI — Quanto posso tirar da empresa hoje?</title>
 
-  <!-- Fonte moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --primary: #0A2342;
       --secondary: #4F6D7A;
+      --accent: #E63946; /* Cor para destaque de preço */
       --light: #F5F7FA;
       --white: #FFFFFF;
       --radius: 12px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background: var(--light); color: var(--primary); line-height: 1.5; }
+    .container { width: 100%; max-width: 1200px; margin: auto; padding: 0 20px; }
+    section { padding: 60px 0; }
+    section h2 { font-size: 28px; font-weight: 700; margin-bottom: 20px; text-align: center; }
+    .section-sub { text-align: center; font-size: 17px; color: var(--secondary); max-width: 750px; margin: 0 auto 40px auto; }
 
-    body {
-      background: var(--light);
-      color: var(--primary);
-      line-height: 1.5;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    /* SECTION BASE */
-    section {
-      padding: 60px 0;
-    }
-
-    section h2 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    section p.section-sub {
-      text-align: center;
-      font-size: 17px;
-      color: var(--secondary);
-      max-width: 750px;
-      margin: 0 auto 40px auto;
-    }
-
-    /* HERO COMPATÍVEL COM AUTH */
     .button-primary {
       display: inline-block;
       background: var(--primary);
@@ -73,209 +39,119 @@
       transition: 0.2s;
     }
 
-    .button-primary:hover {
-      opacity: 0.9;
-    }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card { background: var(--white); padding: 25px; border-radius: var(--radius); box-shadow: 0 2px 10px rgba(0,0,0,0.08); position: relative; }
+    .card h3 { font-weight: 600; margin-bottom: 10px; }
+    
+    /* Destaque para o Simulador */
+    .card-highlight { border: 2px solid var(--primary); background: #f0f4f8; }
+    
+    /* Estilo do Preço Promocional */
+    .price-old { text-decoration: line-through; color: #888; font-size: 14px; }
+    .price-new { color: var(--accent); font-size: 24px; font-weight: 700; }
+    .badge { background: var(--accent); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; position: absolute; top: 15px; right: 15px; }
 
-    /* BENEFITS CARDS */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--white);
-      padding: 25px;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-
-    .card h3 {
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    /* CREDIBILIDADE */
-    .cred {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .cred img {
-      height: 38px;
-      margin-bottom: 12px;
-      opacity: 0.9;
-    }
-
-    .cred p {
-      font-size: 15px;
-      color: var(--secondary);
-    }
-
-    .cred a {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 28px; }
-      .hero p { font-size: 16px; }
-    }
+    .cred { text-align: center; margin-top: 40px; }
+    .cred img { height: 38px; margin-bottom: 12px; }
+    .cred a { color: var(--primary); font-weight: 600; text-decoration: none; }
   </style>
 </head>
 
 <body>
 
-<!-- HERO no padrão visual do AUTH -->
 <div style="background:white; padding:60px 0; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
   <div class="container" style="display:flex; align-items:center; flex-wrap:wrap; gap:40px;">
-    
-    <!-- COLUNA LOGO -->
     <div style="flex:2; min-width:280px; text-align:center;">
-      <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/FinanceAI.png"
-           alt="FinanceAI Logo"
-           style="width:100%; max-width:500px;">
+      <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/FinanceAI.png" alt="FinanceAI Logo" style="width:100%; max-width:500px;">
     </div>
-    
-    <!-- COLUNA TEXTO -->
     <div style="flex:3; min-width:280px;">
       <div style="font-size:32px; font-weight:600; color:#0A2342; margin-bottom:12px;">
-        Análise Financeira Inteligente
+        Saiba exatamente quanto você pode sacar da sua empresa.
       </div>
       <div style="color:#4F6D7A; font-size:16px; margin-bottom:20px; line-height:1.5;">
-        Controle financeiro com Inteligência Artificial — sem contador e sem burocracia.
-        Ideal para micro e pequenos empreendedores que desejam entender sua saúde financeira
-        apenas enviando extratos bancários em PDF.
+        Pare de misturar contas pessoais com as do negócio. Nossa IA analisa seus extratos e calcula a <strong>retirada segura</strong> para você viver tranquilo sem sufocar o caixa da sua empresa.
       </div>
-
-      <a href="https://inteligenciafinanceira.streamlit.app"
-         target="_blank"
-         style="display:inline-block; padding:12px 24px; background:#0A2342; color:white; text-decoration:none; border-radius:8px; font-weight:600;">
-         Acessar o App e Enviar Extratos
-      </a>
-      
-      <div style="font-size:13px; margin-top:12px; color:#4F6D7A;">
-        Transformando números em histórias que façam sentido...
-      </div>
+      <a href="https://inteligenciafinanceira.streamlit.app" target="_blank" class="button-primary">Acessar e Simular Retirada</a>
     </div>
   </div>
 </div>
 
-  <!-- PARA QUEM É -->
   <section>
     <div class="container">
-      <h2>ZERO burocracia</h2>
+      <h2>Chega de "chutar" o seu salário</h2>
       <p class="section-sub">
-        Ideal para MEIs, autônomos, profissionais liberais e microempresas que não querem gastar com contador e consultoria financeira para ter visibilidade do negócio.
+        O erro número 1 do empreendedor é não saber o limite entre o lucro da empresa e o dinheiro do bolso. A FinanceAI resolve isso com precisão matemática e zero complicação.
       </p>
       <div class="cards">
-        <div class="card"><h3>MEIs</h3><p>Controle sem planilhas nem softwares caros.</p></div>
-        <div class="card"><h3>Autônomos</h3><p>Tenha clareza sobre entradas e saídas.</p></div>
-        <div class="card"><h3>Microempresas</h3><p>Diagnóstico real sem contratar consultoria financeira.</p></div>
+        <div class="card card-highlight">
+          <div class="badge">Destaque</div>
+          <h3>💰 Simulador de Retiradas</h3>
+          <p>Descubra o valor ideal para o seu pró-labore este mês, garantindo que a empresa continue operando com fôlego.</p>
+        </div>
+        <div class="card">
+          <h3>📌 Score de Saúde</h3>
+          <p>Sua empresa está doente ou saudável? Receba uma nota real baseada nos seus números, não em suposições.</p>
+        </div>
+        <div class="card">
+          <h3>📉 Alerta de Ralo</h3>
+          <p>Identificamos onde o dinheiro está escapando silenciosamente através de taxas e custos desnecessários.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- O PROBLEMA -->
   <section style="background: var(--white);">
-    <div class="container">
-      <h2>O problema é a falta de controle e o excesso de complexidade</h2>
+    <div class="container" style="text-align: center;">
+      <h2>Você não precisa de mais uma planilha</h2>
       <p class="section-sub">
-        Pequenos negócios quebram por falta de controle financeiro.
-        Só que quando tentam resolver, encontram:<br><br>
-        💸 Contadores e consultorias caras<br>
-        📝 Planilhas e ERPs burocráticos<br>
-        📊 Ferramentas difíceis de manter<br><br>
-        Resultado: o negócio continua às cegas.
+        Você precisa de <strong>respostas</strong>. O contador é caro e o ERP é chato de preencher. No FinanceAI, você só envia o PDF do banco e nós fazemos o trabalho duro.
       </p>
     </div>
   </section>
 
-  <!-- A SOLUÇÃO -->
-  <section>
-    <div class="container">
-      <h2>A solução com IA</h2>
-      <p class="section-sub">
-        Com a FinanceAI basta enviar os extratos bancários em PDF. A IA analisa tudo e entrega:
-      </p>
-      <div class="cards">
-        <div class="card"><h3>📌 Score financeiro</h3><p>Entenda a saúde geral do negócio.</p></div>
-        <div class="card"><h3>📉 Vazamentos e riscos</h3><p>Aponte onde está perdendo dinheiro.</p></div>
-        <div class="card"><h3>📈 Tendências e projeções</h3><p>Veja a evolução financeira ao longo do tempo.</p></div>
-        <div class="card"><h3>📑 Relatórios automáticos</h3><p>Insights claros e visualmente organizados.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMO FUNCIONA -->
-  <section style="background: var(--white);">
-    <div class="container">
-      <h2>Como funciona</h2>
-      <p class="section-sub">Simples, rápido e sem burocracia:</p>
-      <div class="cards">
-        <div class="card"><h3>1. Acesse o App</h3><p>Faça login e entre no painel.</p></div>
-        <div class="card"><h3>2. Envie o PDF</h3><p>Faça upload dos extratos bancários.</p></div>
-        <div class="card"><h3>3. IA analisa</h3><p>Transformamos movimentos bancários em dados.</p></div>
-        <div class="card"><h3>4. Receba o diagnóstico</h3><p>Relatórios, alertas e insights úteis.</p></div>
-      </div>
-      <br><br>
-      <div style="text-align:center;">
-        <a class="button-primary" href="https://inteligenciafinanceira.streamlit.app" target="_blank">Acessar o App e Enviar Extratos</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PLANOS -->
   <section style="background: var(--light);">
     <div class="container">
       <h2>Planos de Acesso</h2>
-      <p class="section-sub">
-        Escolha a forma de usar o FinanceAI conforme sua necessidade. Sem burocracia e com preço acessível.
-      </p>
+      <p class="section-sub">Comece grátis ou tenha o diagnóstico completo com o melhor custo-benefício do mercado.</p>
 
       <div class="cards">
         <div class="card">
           <h3>Plano Free</h3>
-          <p><strong>Duração:</strong> 7 dias corridos</p>
-          <p><strong>Envio de extratos:</strong> até 1 mês de movimentação bancária</p>
-          <p><strong>Indicado para:</strong> testar e validar o serviço</p>
-          <p style="color:#4F6D7A; font-size:14px; margin-top:8px;">
-            *Expira em 7 dias e possui limite de 1 mês de movimentação.
-          </p>
+          <p><strong>Uso:</strong> 7 dias corridos</p>
+          <p><strong>Histórico:</strong> 1 mês de extrato</p>
+          <p><strong>Ideal para:</strong> Ver como a IA funciona.</p>
+          <p style="margin-top:20px; font-weight:700;">Grátis</p>
         </div>
 
-        <div class="card">
+        <div class="card" style="border: 2px solid var(--accent);">
+          <div class="badge" style="background:var(--accent)">OFERTA ATIVA</div>
           <h3>Plano Premium</h3>
-          <p><strong>Acesso:</strong> ilimitado</p>
-          <p><strong>Envio de extratos:</strong> até 12 meses no início</p>
-          <p><strong>Ideal para:</strong> diagnóstico financeiro real e previsões</p>
-          <p><strong>Investimento:</strong> R$ 19,82/mês</p>
-          <p style="color:#4F6D7A; font-size:14px; margin-top:8px;">
-            *Menos que uma McOferta de Big Mac por mês 🍔
-          </p>
+          <p><strong>Uso:</strong> Acesso ilimitado</p>
+          <p><strong>Histórico:</strong> Até 12 meses de análise</p>
+          <p><strong>Inclui:</strong> Simulação de retiradas e projeção de caixa.</p>
+          
+          <div style="margin-top:20px;">
+            <span class="price-old">De R$ 29,90</span><br>
+            <span class="price-new">R$ 19,82</span><span style="font-size:14px; color:var(--secondary);"> /mês</span>
+          </div>
+          <p style="color:var(--secondary); font-size:12px; margin-top:5px;">*Invista menos que um café por semana na sua gestão.</p>
         </div>
       </div>
 
-      <br><br>
-      <div style="text-align:center;">
-        <a class="button-primary" href="https://inteligenciafinanceira.streamlit.app" target="_blank">
-          Começar Agora
-        </a>
+      <div style="text-align:center; margin-top: 40px;">
+        <a class="button-primary" href="https://inteligenciafinanceira.streamlit.app" target="_blank">Aproveitar Desconto e Começar</a>
       </div>
     </div>
   </section>
 
-  <!-- CREDIBILIDADE -->
   <section>
     <div class="container">
       <div class="cred">
         <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png" alt="Hedgewise Logo">
         <p>
-          Desenvolvido pela <strong>Hedgewise Consultoria</strong>, especialista em risco e inteligência financeira.<br><br>
-          📸 Instagram: <a href="https://instagram.com/hedgewise_risco" target="_blank">@hedgewise_risco</a><br>
-          📩 E-mail: <a href="mailto:hedgewise.consultoria@gmail.com">hedgewise.consultoria@gmail.com</a>
+          Desenvolvido pela <strong>Hedgewise Consultoria</strong><br>
+          Inteligência financeira real para quem faz acontecer.<br><br>
+          📸 <a href="https://instagram.com/hedgewise_risco" target="_blank">@hedgewise_risco</a>
         </p>
       </div>
     </div>
