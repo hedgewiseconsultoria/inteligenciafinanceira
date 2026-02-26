@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
- <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png">
- <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FinanceAI — Quanto posso tirar da empresa hoje?</title>
+  <title>FinanceAI — Inteligência Financeira Real</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -14,151 +14,203 @@
     :root {
       --primary: #0A2342;
       --secondary: #4F6D7A;
-      --accent: #E63946; /* Cor para destaque de preço */
+      --accent: #2CA58D;
+      --highlight: #E63946;
       --light: #F5F7FA;
       --white: #FFFFFF;
       --radius: 12px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background: var(--light); color: var(--primary); line-height: 1.5; }
-    .container { width: 100%; max-width: 1200px; margin: auto; padding: 0 20px; }
-    section { padding: 60px 0; }
-    section h2 { font-size: 28px; font-weight: 700; margin-bottom: 20px; text-align: center; }
-    .section-sub { text-align: center; font-size: 17px; color: var(--secondary); max-width: 750px; margin: 0 auto 40px auto; }
+    body { background: var(--white); color: var(--primary); line-height: 1.5; }
+    .container { width: 100%; max-width: 1100px; margin: auto; padding: 0 20px; }
+    section { padding: 80px 0; }
+    section h2 { font-size: 32px; font-weight: 700; margin-bottom: 15px; text-align: center; }
+    .section-sub { text-align: center; font-size: 18px; color: var(--secondary); max-width: 750px; margin: 0 auto 40px auto; }
 
     .button-primary {
       display: inline-block;
-      background: var(--primary);
+      background: var(--accent);
       color: var(--white);
       text-decoration: none;
-      padding: 14px 30px;
+      padding: 16px 32px;
       border-radius: var(--radius);
       font-weight: 600;
       font-size: 18px;
-      transition: 0.2s;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(44, 165, 141, 0.3);
     }
-
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .card { background: var(--white); padding: 25px; border-radius: var(--radius); box-shadow: 0 2px 10px rgba(0,0,0,0.08); position: relative; }
-    .card h3 { font-weight: 600; margin-bottom: 10px; }
     
-    /* Destaque para o Simulador */
-    .card-highlight { border: 2px solid var(--primary); background: #f0f4f8; }
-    
-    /* Estilo do Preço Promocional */
-    .price-old { text-decoration: line-through; color: #888; font-size: 14px; }
-    .price-new { color: var(--accent); font-size: 24px; font-weight: 700; }
-    .badge { background: var(--accent); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; position: absolute; top: 15px; right: 15px; }
+    .button-primary:hover { transform: translateY(-2px); opacity: 0.9; }
 
-    .cred { text-align: center; margin-top: 40px; }
-    .cred img { height: 38px; margin-bottom: 12px; }
-    .cred a { color: var(--primary); font-weight: 600; text-decoration: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+    .card { background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: relative; border: 1px solid #eee; }
+    .card h3 { font-weight: 700; margin-bottom: 15px; font-size: 20px; color: var(--primary); }
+    .card p { color: var(--secondary); font-size: 15px; }
+    
+    .badge { background: var(--highlight); color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 700; position: absolute; top: 20px; right: 20px; }
+    .step-number { background: var(--primary); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-weight: bold; }
+    .price-big { font-size: 32px; font-weight: 800; color: var(--primary); margin: 15px 0 5px 0; }
+    
+    footer { text-align: center; padding: 60px 0; background: var(--white); border-top: 1px solid #eee; }
+    
+    /* LOGO HEDGEWISE AUMENTADA AQUI */
+    .cred img { height: 110px; margin-bottom: 15px; } 
+    
+    .cred a { color: var(--accent); font-weight: 600; text-decoration: none; }
   </style>
 </head>
 
 <body>
 
-<div style="background:white; padding:60px 0; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-  <div class="container" style="display:flex; align-items:center; flex-wrap:wrap; gap:40px;">
-    <div style="flex:2; min-width:280px; text-align:center;">
-      <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/FinanceAI.png" alt="FinanceAI Logo" style="width:100%; max-width:500px;">
+<div style="background:white; padding:70px 0; border-bottom: 1px solid #f0f0f0;">
+  <div class="container" style="display:flex; align-items:center; flex-wrap:wrap; gap:50px;">
+    <div style="flex:1; min-width:300px; text-align:center;">
+      <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/FinanceAI.png" alt="FinanceAI Logo" style="width:100%; max-width:550px;">
     </div>
-    <div style="flex:3; min-width:280px;">
-      <div style="font-size:32px; font-weight:600; color:#0A2342; margin-bottom:12px;">
-        Saiba exatamente quanto você pode sacar da sua empresa.
-      </div>
-      <div style="color:#4F6D7A; font-size:16px; margin-bottom:20px; line-height:1.5;">
-        Pare de misturar contas pessoais com as do negócio. Nossa IA analisa seus extratos e calcula a <strong>retirada segura</strong> para você viver tranquilo sem sufocar o caixa da sua empresa.
-      </div>
-      <a href="https://inteligenciafinanceira.streamlit.app" target="_blank" class="button-primary">Acessar e Simular Retirada</a>
+    <div style="flex:1; min-width:300px;">
+      <h1 style="font-size:36px; font-weight:800; color:var(--primary); margin-bottom:20px;">Decisões financeiras baseadas em dados reais</h1>
+      <p style="color:var(--secondary); font-size:18px; margin-bottom:30px;">
+        A FinanceAI analisa seus extratos bancários e transforma movimentações em inteligência para você saber quanto pode retirar da empresa com segurança.
+      </p>
+      <a href="https://inteligenciafinanceira.streamlit.app" target="_blank" class="button-primary">Iniciar avaliação de 7 dias</a>
     </div>
   </div>
 </div>
 
-  <section>
-    <div class="container">
-      <h2>Chega de "chutar" o seu salário</h2>
-      <p class="section-sub">
-        O erro número 1 do empreendedor é não saber o limite entre o lucro da empresa e o dinheiro do bolso. A FinanceAI resolve isso com precisão matemática e zero complicação.
-      </p>
-      <div class="cards">
-        <div class="card card-highlight">
-          <div class="badge">Destaque</div>
-          <h3>💰 Simulador de Retiradas</h3>
-          <p>Descubra o valor ideal para o seu pró-labore este mês, garantindo que a empresa continue operando com fôlego.</p>
-        </div>
-        <div class="card">
-          <h3>📌 Score de Saúde</h3>
-          <p>Sua empresa está doente ou saudável? Receba uma nota real baseada nos seus números, não em suposições.</p>
-        </div>
-        <div class="card">
-          <h3>📉 Alerta de Ralo</h3>
-          <p>Identificamos onde o dinheiro está escapando silenciosamente através de taxas e custos desnecessários.</p>
-        </div>
+<section style="background: var(--light);">
+  <div class="container">
+    <h2>Gestão baseada em dados bancários reais</h2>
+    <p class="section-sub">A FinanceAI trabalha com o que realmente aconteceu no seu banco. Você envia o extrato, nós fazemos o resto.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Extração via IA</h3>
+        <p>Envie seus PDFs e nossa tecnologia extrai e organiza as movimentações automaticamente.</p>
+      </div>
+      <div class="card">
+        <h3>Classificação Estruturada</h3>
+        <p>Organização clara e profissional para uma análise financeira de alto nível.</p>
+      </div>
+      <div class="card">
+        <h3>Rastreabilidade</h3>
+        <p>Cada transação vinculada ao extrato original, garantindo integridade total.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section style="background: var(--white);">
+<section style="background: var(--white);">
+  <div class="container">
+    <h2>Como funciona</h2>
+    <p class="section-sub">Simples, profissional e direto ao ponto.</p>
+    <div class="cards">
+      <div class="card" style="border: none; box-shadow: none; background: transparent;">
+        <div class="step-number">1</div>
+        <h3>Envie seus extratos</h3>
+        <p>Importe os arquivos PDF gerados pelo seu banco diretamente na plataforma.</p>
+      </div>
+      <div class="card" style="border: none; box-shadow: none; background: transparent;">
+        <div class="step-number">2</div>
+        <h3>IA organiza tudo</h3>
+        <p>Nossa inteligência classifica as entradas e saídas sem que você precise digitar uma linha sequer.</p>
+      </div>
+      <div class="card" style="border: none; box-shadow: none; background: transparent;">
+        <div class="step-number">3</div>
+        <h3>Analise e decida</h3>
+        <p>Receba seu Score Financeiro e use o Simulador para saber o valor exato da sua retirada segura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--light);">
+  <div class="container">
+    <h2>Chega de "chutar" o seu salário</h2>
+    <p class="section-sub">
+      O erro número 1 do empreendedor é não saber o limite entre o lucro da empresa e o dinheiro do bolso. Resolvemos isso com precisão matemática.
+    </p>
+    <div class="cards">
+      <div class="card" style="border-left: 5px solid var(--accent);">
+        <h3>💰 Simulador de Retiradas</h3>
+        <p>Descubra o valor ideal para o seu pró-labore, garantindo que a empresa opere com fôlego financeiro.</p>
+      </div>
+      <div class="card" style="border-left: 5px solid var(--primary);">
+        <h3>📌 Score de Saúde</h3>
+        <p>Receba uma nota real da sua empresa baseada em dados bancários, sem suposições ou planilhas chatas.</p>
+      </div>
+      <div class="card" style="border-left: 5px solid var(--highlight);">
+        <h3>📉 Alerta de Ralo</h3>
+        <p>Identificamos onde o dinheiro está escapando através de taxas e custos desnecessários silenciosos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--white);">
     <div class="container" style="text-align: center;">
       <h2>Você não precisa de mais uma planilha</h2>
       <p class="section-sub">
         Você precisa de <strong>respostas</strong>. O contador é caro e o ERP é chato de preencher. No FinanceAI, você só envia o PDF do banco e nós fazemos o trabalho duro.
       </p>
     </div>
-  </section>
+</section>
 
-  <section style="background: var(--light);">
-    <div class="container">
-      <h2>Planos de Acesso</h2>
-      <p class="section-sub">Comece grátis ou tenha o diagnóstico completo com o melhor custo-benefício do mercado.</p>
+<section style="background: var(--light);">
+  <div class="container">
+    <h2>Plano Profissional</h2>
+    <p class="section-sub">Tenha o diagnóstico completo com o melhor custo-benefício do mercado.</p>
 
-      <div class="cards">
-        <div class="card">
-          <h3>Plano Free</h3>
-          <p><strong>Uso:</strong> 7 dias corridos</p>
-          <p><strong>Histórico:</strong> 1 mês de extrato</p>
-          <p><strong>Ideal para:</strong> Ver como a IA funciona.</p>
-          <p style="margin-top:20px; font-weight:700;">Grátis</p>
-        </div>
-
-        <div class="card" style="border: 2px solid var(--accent);">
-          <div class="badge" style="background:var(--accent)">OFERTA ATIVA</div>
-          <h3>Plano Premium</h3>
-          <p><strong>Uso:</strong> Acesso ilimitado</p>
-          <p><strong>Histórico:</strong> Até 12 meses de análise</p>
-          <p><strong>Inclui:</strong> Simulação de retiradas e projeção de caixa.</p>
-          
-          <div style="margin-top:20px;">
-            <span class="price-old">De R$ 29,90</span><br>
-            <span class="price-new">R$ 19,82</span><span style="font-size:14px; color:var(--secondary);"> /mês</span>
-          </div>
-          <p style="color:var(--secondary); font-size:12px; margin-top:5px;">*Invista menos que um café por semana na sua gestão.</p>
-        </div>
+    <div class="cards" style="justify-content: center; display: flex; flex-wrap: wrap;">
+      <div class="card" style="flex: 1; max-width: 400px;">
+        <h3>Avaliação</h3>
+        <p><strong>Duração:</strong> 7 dias</p>
+        <p><strong>Histórico:</strong> Últimos 30 dias</p>
+        <p>Teste todas as funcionalidades e veja como a IA funciona.</p>
+        <div class="price-big">Período de teste</div>
+        <p style="color:var(--accent); font-weight: 700; font-size:14px;">Sem cartão de crédito na entrada</p>
       </div>
 
-      <div style="text-align:center; margin-top: 40px;">
-        <a class="button-primary" href="https://inteligenciafinanceira.streamlit.app" target="_blank">Aproveitar Desconto e Começar</a>
+      <div class="card" style="flex: 1; max-width: 400px; border: 2px solid var(--highlight);">
+        <div class="badge">IMPERDÍVEL</div>
+        <h3>Profissional</h3>
+        <p><strong>Histórico:</strong> Até 12 meses de análise</p>
+        <p><strong>Inclui:</strong> Score Financeiro, Simulador e Projeção de Caixa.</p>
+        
+        <div class="price-big">R$ 34,90<span style="font-size:16px; color:var(--secondary); font-weight:400;"> /mês</span></div>
+        <p style="font-weight:600;">ou R$ 298 / ano</p>
+        
+        <div style="margin-top:20px; padding-top: 15px; border-top: 1px solid #eee;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/mp_logo.png" alt="Mercado Pago" style="height:28px;">
+                <span style="font-size:12px; color:var(--secondary); font-weight: 600;">Pagamento seguro via Mercado Pago.</span>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <img src="https://img.shields.io/badge/Pix-00BAAD?style=for-the-badge&logo=pix&logoColor=white" alt="Pix" style="height:18px; border-radius:4px;">
+                <img src="https://img.shields.io/badge/Cartão-004AAD?style=for-the-badge&logo=visa&logoColor=white" alt="Cartão" style="height:18px; border-radius:4px;">
+            </div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section>
-    <div class="container">
-      <div class="cred">
-        <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png" alt="Hedgewise Logo">
-        <p>
-          Desenvolvido pela <strong>Hedgewise Consultoria</strong><br>
-          Inteligência financeira real para quem faz acontecer.<br><br>
-          📸 <a href="https://instagram.com/hedgewise_risco" target="_blank">@hedgewise_risco</a><br>
-          📩 <a href="mailto:hedgewise.consultoria@gmail.com">
-              hedgewise.consultoria@gmail.com
-          </a>  
-        </p>
-      </div>
+    <div style="text-align:center; margin-top: 50px;">
+      <a class="button-primary" href="https://inteligenciafinanceira.streamlit.app" target="_blank">Aproveitar e Começar</a>
     </div>
-  </section>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="cred">
+      <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png" alt="Hedgewise Logo">
+      <p>
+        Desenvolvido pela <strong>Hedgewise Consultoria</strong><br>
+        Inteligência financeira real para quem faz acontecer.<br><br>
+        📸 <a href="https://instagram.com/hedgewise_risco" target="_blank">@hedgewise_risco</a><br>
+        📩 <a href="mailto:hedgewise.consultoria@gmail.com">hedgewise.consultoria@gmail.com</a>
+      </p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
