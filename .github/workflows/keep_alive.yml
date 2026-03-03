@@ -1,0 +1,23 @@
+name: Keep Streamlit Alive
+
+on:
+  schedule:
+    # executa a cada 10 minutos
+    - cron: "*/10 * * * *"
+
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Streamlit App
+        run: |
+          echo "Acessando app..."
+          curl -L https://inteligenciafinanceira.streamlit.app/
+
+      - name: Simular acesso adicional
+        run: |
+          echo "Segundo acesso..."
+          curl -L https://inteligenciafinanceira.streamlit.app/?keepalive=true
