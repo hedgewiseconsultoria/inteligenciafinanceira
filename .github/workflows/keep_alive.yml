@@ -2,9 +2,7 @@ name: Keep Streamlit Alive
 
 on:
   schedule:
-    # executa a cada 10 minutos
     - cron: "*/10 * * * *"
-
   workflow_dispatch:
 
 jobs:
@@ -12,26 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Ping Streamlit App
+      - name: Ping Streamlit App (browser-like)
         run: |
           echo "Acessando app..."
-          curl -L \
-               --max-redirs 5 \
-               --connect-timeout 10 \
-               --max-time 30 \
-               --silent \
-               --output /dev/null \
-               --write-out "HTTP Status: %{http_code}\n" \
-               https://inteligenciafinanceira.streamlit.app/
 
-      - name: Segundo acesso (keepalive)
-        run: |
-          echo "Segundo acesso..."
-          curl -L \
-               --max-redirs 5 \
-               --connect-timeout 10 \
-               --max-time 30 \
-               --silent \
-               --output /dev/null \
-               --write-out "HTTP Status: %{http_code}\n" \
-               "https://inteligenciafinanceira.streamlit.app/?keepalive=true"
+          curl https://inteligenciafinanceira.streamlit.app/ \
+            -L \
+            --cookie-jar cookies.txt \
+            --cookie cookies.txt \
+            --max-redirs 10 \
+            --connect-timeout 10 \
+            --max-time 40 \
+            --silent \
+            --output /dev/null \
+            --write-out "HTTP Status: %{http_code}\n"
