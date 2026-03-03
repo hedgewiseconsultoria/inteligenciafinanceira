@@ -15,9 +15,23 @@ jobs:
       - name: Ping Streamlit App
         run: |
           echo "Acessando app..."
-          curl -L https://inteligenciafinanceira.streamlit.app/
+          curl -L \
+               --max-redirs 5 \
+               --connect-timeout 10 \
+               --max-time 30 \
+               --silent \
+               --output /dev/null \
+               --write-out "HTTP Status: %{http_code}\n" \
+               https://inteligenciafinanceira.streamlit.app/
 
-      - name: Simular acesso adicional
+      - name: Segundo acesso (keepalive)
         run: |
           echo "Segundo acesso..."
-          curl -L https://inteligenciafinanceira.streamlit.app/?keepalive=true
+          curl -L \
+               --max-redirs 5 \
+               --connect-timeout 10 \
+               --max-time 30 \
+               --silent \
+               --output /dev/null \
+               --write-out "HTTP Status: %{http_code}\n" \
+               "https://inteligenciafinanceira.streamlit.app/?keepalive=true"
