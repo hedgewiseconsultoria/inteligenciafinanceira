@@ -1,4 +1,4 @@
-<!doctype html>
+                                                                                                    <!doctype html>
 <html lang="pt-BR">
 <head>
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png">
@@ -85,12 +85,11 @@
     .hero-inner {
       display: flex;
       align-items: center;
-      gap: 60px;
-      flex-wrap: wrap;
+      justify-content: center;
     }
-    .hero-text { flex: 1; min-width: 300px; }
-    .hero-img { flex: 1.5; min-width: 280px; text-align: center; }
-    .hero-img img { width: 100%; max-width: 2500px; border-radius: 12px; box-shadow: 0 8px 40px rgba(0,0,0,0.25); }
+    .hero-text { width: 100%; max-width: 800px; margin: 0 auto; text-align: center; }
+    .hero-img { flex: 1; min-width: 280px; text-align: center; }
+    .hero-img img { width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 8px 40px rgba(0,0,0,0.25); }
     .hero-tag {
       display: inline-block;
       background: rgba(44,165,141,0.2);
@@ -117,11 +116,26 @@
       font-size: 18px;
       color: rgba(255,255,255,0.78);
       margin-bottom: 36px;
-      max-width: 520px;
+      max-width: 560px;
       line-height: 1.7;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: center; }
     .hero-note { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 14px; }
+
+    /* ===== LOGO BAND ===== */
+    .logo-band {
+      background: var(--white);
+      padding: 40px 0;
+      text-align: center;
+      border-bottom: 1px solid #eef1f4;
+    }
+    .logo-band img {
+      height: 105px;
+      display: block;
+      margin: 0 auto;
+    }
 
     /* ===== PAIN SECTION ===== */
     .pain-section { background: var(--white); }
@@ -368,20 +382,15 @@
         </div>
         <p class="hero-note">Sem cartão de crédito. Sem planilha para preencher.</p>
       </div>
-      <div class="hero-img">
-        <svg viewBox="0 0 520 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Finance AI" style="width:100%; max-width:580px; display:block; margin:0 auto;">
-          <text y="72"
-            font-family="'Sora', 'Arial Black', sans-serif"
-            font-weight="800"
-            font-size="82"
-            letter-spacing="-1">
-            <tspan fill="#FFFFFF">FINANCE </tspan><tspan fill="#29B6F6">AI</tspan>
-          </text>
-        </svg>
-      </div>
+
     </div>
   </div>
 </section>
+
+<!-- ===== LOGO BAND ===== -->
+<div class="logo-band">
+  <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/FinanceAI.png" alt="Finance AI">
+</div>
 
 <!-- ===== DOR ===== -->
 <section class="pain-section">
@@ -404,7 +413,7 @@
         <div class="step-num">1</div>
         <div class="step-content">
           <h3>Envie o extrato bancário em PDF</h3>
-          <p>Exporte o extrato direto do seu banco e carregue no Finance AI. Funciona com qualquer banco brasileiro. Você pode enviar os últimos 12 meses de uma vez.</p>
+          <p>Baixe o extrato direto do seu banco e carregue no Finance AI. Funciona com qualquer banco brasileiro. Você pode enviar os últimos 12 meses de uma vez.</p>
           <span class="step-badge">Você faz isso</span>
         </div>
       </div>
@@ -487,7 +496,7 @@
 <!-- ===== GAMIFICATION / SCORE ===== -->
 <section class="score-section">
   <div class="container">
-    <h2>O seu negócio tem um Score. Qual é o seu?</h2>
+    <h2>O seu negócio tem um Score. Sabe qual é?</h2>
     <p class="section-sub">Calculamos sua saúde financeira em um número de 0 a 100 — e gamificamos para que evoluir seja motivador.</p>
     <div class="badges-row">
       <div class="badge-item">
@@ -557,7 +566,7 @@
 <!-- ===== PROVA SOCIAL ===== -->
 <section class="proof-section">
   <div class="container">
-    <h2>O que dizem quem usa</h2>
+    <h2>O que diz quem usa</h2>
     <p class="section-sub">Pequenos empreendedores que pararam de chutar e começaram a decidir com dados.</p>
     <div class="testimonials">
       <div class="testimonial">
@@ -681,4 +690,4 @@
       Desenvolvido pela <strong>Hedgewise Consultoria</strong><br>
       Inteligência financeira real para quem faz acontecer.<br><br>
       📸 <a href="https://instagram.com/hedgewiseconsultoria" target="_blank">@hedgewiseconsultoria</a> &nbsp;·&nbsp;
-      📩 <a href="mailto:contato@hedgewiseconsultoria.com.br">contato@hedgewiseconsultoria.com.br</a>                                                                                                              
+      📩 <a href="mailto:contato@hedgewiseconsultoria.com.br">contato@hedgewiseconsultoria.com.br</a
