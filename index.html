@@ -3,12 +3,20 @@
 <head>
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png">
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FinanceAI — Inteligência Financeira Real</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- SEO -->
+  <title>Finance AI — Descubra Quanto Você Pode Retirar da Sua Empresa Sem Prejudicar o Caixa</title>
+  <meta name="description" content="Envie o extrato bancário da sua empresa, a IA organiza tudo e você descobre exatamente quanto pode retirar como pró-labore sem arriscar o caixa. Para pequenos empreendedores que querem separar o dinheiro pessoal do da empresa.">
+  <meta name="keywords" content="fluxo de caixa, gestão financeira, pequeno empreendedor, MEI, pró-labore, extrato bancário, saúde financeira empresa, simulador retiradas, finanças empresariais">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Finance AI — Quanto a sua empresa pode te pagar hoje?">
+  <meta property="og:description" content="Envie o extrato bancário, a IA faz a análise e você descobre seu Score de Saúde Financeira e o valor exato do seu pró-labore.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/FinanceAI.png">
+  <meta property="og:type" content="website">
+
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -16,199 +24,661 @@
       --secondary: #4F6D7A;
       --accent: #2CA58D;
       --highlight: #E63946;
-      --light: #F5F7FA;
+      --light: #F4F7F9;
       --white: #FFFFFF;
-      --radius: 12px;
+      --radius: 14px;
+      --shadow: 0 6px 30px rgba(10,35,66,0.09);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background: var(--white); color: var(--primary); line-height: 1.5; }
-    .container { width: 100%; max-width: 1100px; margin: auto; padding: 0 20px; }
-    section { padding: 80px 0; }
-    section h2 { font-size: 32px; font-weight: 700; margin-bottom: 15px; text-align: center; }
-    .section-sub { text-align: center; font-size: 18px; color: var(--secondary); max-width: 750px; margin: 0 auto 40px auto; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--white); color: var(--primary); line-height: 1.6; font-family: 'DM Sans', sans-serif; }
+    h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
+    .container { width: 100%; max-width: 1080px; margin: auto; padding: 0 24px; }
+    section { padding: 90px 0; }
+    section h2 { font-size: 34px; font-weight: 800; margin-bottom: 14px; text-align: center; color: var(--primary); }
+    .section-sub { text-align: center; font-size: 18px; color: var(--secondary); max-width: 680px; margin: 0 auto 48px; }
 
-    .button-primary {
+    .btn {
       display: inline-block;
       background: var(--accent);
       color: var(--white);
       text-decoration: none;
-      padding: 16px 32px;
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 18px;
-      transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(44, 165, 141, 0.3);
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 17px;
+      font-family: 'Sora', sans-serif;
+      transition: all 0.25s;
+      box-shadow: 0 6px 20px rgba(44,165,141,0.35);
+      letter-spacing: 0.01em;
     }
-    
-    .button-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(44,165,141,0.45); }
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: 'Sora', sans-serif;
+      transition: all 0.25s;
+    }
+    .btn-outline:hover { background: var(--primary); color: white; }
 
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-    .card { background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: relative; border: 1px solid #eee; }
-    .card h3 { font-weight: 700; margin-bottom: 15px; font-size: 20px; color: var(--primary); }
-    .card p { color: var(--secondary); font-size: 15px; }
-    
-    .badge { background: var(--highlight); color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 700; position: absolute; top: 20px; right: 20px; }
-    .step-number { background: var(--primary); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-weight: bold; }
-    .price-big { font-size: 32px; font-weight: 800; color: var(--primary); margin: 15px 0 5px 0; }
-    
-    footer { text-align: center; padding: 60px 0; background: var(--white); border-top: 1px solid #eee; }
-    
-    /* LOGO HEDGEWISE AUMENTADA AQUI */
-    .cred img { height: 110px; margin-bottom: 15px; } 
-    
-    .cred a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #0A2342 0%, #1a3a5c 60%, #0e2f4f 100%);
+      padding: 90px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -120px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(44,165,141,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .hero-text { flex: 1; min-width: 300px; }
+    .hero-img { flex: 1.2; min-width: 280px; text-align: center; }
+    .hero-img img { width: 100%; max-width: 2000px; border-radius: 12px; box-shadow: 0 8px 40px rgba(0,0,0,0.25); }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(44,165,141,0.2);
+      border: 1px solid rgba(44,165,141,0.5);
+      color: #5ECDB5;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Sora', sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: #5ECDB5; }
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 36px;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hero-note { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 14px; }
+
+    /* ===== PAIN SECTION ===== */
+    .pain-section { background: var(--white); }
+    .pain-box {
+      background: linear-gradient(135deg, #fff5f5, #fff);
+      border: 1.5px solid #ffd0d3;
+      border-radius: var(--radius);
+      padding: 40px 48px;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .pain-box .icon { font-size: 48px; margin-bottom: 16px; }
+    .pain-box h3 { font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 14px; }
+    .pain-box p { font-size: 17px; color: var(--secondary); line-height: 1.7; }
+
+    /* ===== HOW IT WORKS ===== */
+    .steps-section { background: var(--light); }
+    .steps-grid { display: flex; flex-direction: column; gap: 0; max-width: 760px; margin: 0 auto; }
+    .step {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid #e2e8ed;
+      position: relative;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 4px 14px rgba(10,35,66,0.25);
+    }
+    .step-content { flex: 1; }
+    .step-content h3 { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 7px; }
+    .step-content p { font-size: 16px; color: var(--secondary); line-height: 1.65; }
+    .step-badge {
+      display: inline-block;
+      background: rgba(44,165,141,0.12);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'Sora', sans-serif;
+      margin-top: 8px;
+    }
+
+    /* ===== FEATURES ===== */
+    .features-section { background: var(--white); }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
+    .feature-card {
+      background: var(--white);
+      border: 1.5px solid #e8edf2;
+      border-radius: var(--radius);
+      padding: 30px 26px;
+      transition: all 0.25s;
+      box-shadow: var(--shadow);
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(10,35,66,0.12); }
+    .feature-card .f-icon { font-size: 34px; margin-bottom: 14px; }
+    .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--primary); }
+    .feature-card p { font-size: 15px; color: var(--secondary); line-height: 1.65; }
+    .feature-accent { border-top: 3px solid var(--accent); }
+    .feature-primary { border-top: 3px solid var(--primary); }
+    .feature-highlight { border-top: 3px solid var(--highlight); }
+    .feature-gold { border-top: 3px solid #F5A623; }
+
+    /* ===== SCORE / GAMIFICATION ===== */
+    .score-section { background: var(--primary); }
+    .score-section h2, .score-section .section-sub { color: white; }
+    .score-section .section-sub { color: rgba(255,255,255,0.7); }
+    .badges-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .badge-item {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      text-align: center;
+      min-width: 130px;
+      transition: transform 0.2s;
+    }
+    .badge-item:hover { transform: translateY(-4px); }
+    .badge-item .b-icon { font-size: 38px; margin-bottom: 8px; }
+    .badge-item .b-label { font-size: 13px; font-weight: 700; font-family: 'Sora', sans-serif; color: rgba(255,255,255,0.85); }
+    .badge-item .b-range { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+    .score-highlight {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .score-highlight p { font-size: 17px; color: rgba(255,255,255,0.8); line-height: 1.7; }
+    .score-highlight strong { color: #5ECDB5; }
+
+    /* ===== SIMULATOR ===== */
+    .simulator-section { background: var(--light); }
+    .sim-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 44px 40px;
+      max-width: 720px;
+      margin: 0 auto;
+      border: 1.5px solid #e8edf2;
+    }
+    .sim-example {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 30px;
+    }
+    .sim-box {
+      border-radius: 10px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .sim-box .sb-label { font-size: 13px; color: var(--secondary); font-weight: 600; margin-bottom: 6px; font-family: 'Sora', sans-serif; }
+    .sim-box .sb-value { font-size: 22px; font-weight: 800; font-family: 'Sora', sans-serif; }
+    .sim-box .sb-desc { font-size: 12px; color: var(--secondary); margin-top: 6px; }
+
+    /* ===== PRICING ===== */
+    .pricing-section { background: var(--white); }
+    .pricing-grid { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+    .price-card {
+      background: var(--white);
+      border: 1.5px solid #e8edf2;
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      flex: 1;
+      max-width: 380px;
+      min-width: 280px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .price-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 12px 40px rgba(44,165,141,0.18);
+      transform: scale(1.02);
+    }
+    .price-badge {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--highlight);
+      color: white;
+      padding: 5px 18px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 800;
+      font-family: 'Sora', sans-serif;
+      white-space: nowrap;
+    }
+    .price-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+    .price-amount { font-size: 40px; font-weight: 800; font-family: 'Sora', sans-serif; color: var(--primary); margin: 18px 0 4px; }
+    .price-amount span { font-size: 17px; font-weight: 500; color: var(--secondary); }
+    .price-desc { font-size: 14px; color: var(--secondary); margin-bottom: 22px; }
+    .price-features { list-style: none; padding: 0; margin: 18px 0 28px; }
+    .price-features li {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 15px; color: var(--secondary);
+      margin-bottom: 10px; line-height: 1.5;
+    }
+    .price-features li::before { content: '✓'; color: var(--accent); font-weight: 800; flex-shrink: 0; }
+    .mp-row { display: flex; align-items: center; gap: 10px; margin-top: 22px; padding-top: 18px; border-top: 1px solid #eee; }
+    .mp-row img { height: 26px; }
+    .mp-row span { font-size: 12px; color: var(--secondary); }
+
+    /* ===== SOCIAL PROOF ===== */
+    .proof-section { background: var(--light); }
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .testimonial {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid #e8edf2;
+    }
+    .testimonial .stars { color: #F5A623; font-size: 18px; margin-bottom: 12px; }
+    .testimonial p { font-size: 15px; color: var(--secondary); line-height: 1.65; font-style: italic; margin-bottom: 18px; }
+    .testimonial .author { font-size: 14px; font-weight: 700; color: var(--primary); font-family: 'Sora', sans-serif; }
+    .testimonial .author-role { font-size: 12px; color: var(--secondary); }
+
+    /* ===== FAQ ===== */
+    .faq-section { background: var(--white); }
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid #e8edf2; padding: 22px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 10px; font-family: 'Sora', sans-serif; }
+    .faq-a { font-size: 15px; color: var(--secondary); line-height: 1.7; }
+
+    /* ===== CTA FINAL ===== */
+    .cta-final {
+      background: linear-gradient(135deg, #0A2342 0%, #1a3a5c 100%);
+      padding: 90px 0;
+      text-align: center;
+    }
+    .cta-final h2 { color: white; font-size: 38px; margin-bottom: 16px; }
+    .cta-final p { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 560px; margin: 0 auto 36px; }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--white); border-top: 1px solid #eee; padding: 60px 0; text-align: center; }
+    .footer-logo img { height: 100px; margin-bottom: 16px; }
+    footer p { font-size: 15px; color: var(--secondary); line-height: 1.8; }
+    footer a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:640px) {
+      .hero-inner { flex-direction: column-reverse; gap: 30px; }
+      .hero h1 { font-size: 28px; }
+      .sim-example { grid-template-columns: 1fr; }
+      .price-card.featured { transform: none; }
+    }
   </style>
 </head>
-
 <body>
 
-<div style="background:white; padding:70px 0; border-bottom: 1px solid #f0f0f0;">
-  <div class="container" style="display:flex; align-items:center; flex-wrap:wrap; gap:50px;">
-    <div style="flex:1; min-width:300px; text-align:center;">
-      <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/FinanceAI.png" alt="FinanceAI Logo" style="width:100%; max-width:550px;">
-    </div>
-    <div style="flex:1; min-width:300px;">
-      <h1 style="font-size:36px; font-weight:800; color:var(--primary); margin-bottom:20px;">Decisões financeiras baseadas em dados reais</h1>
-      <p style="color:var(--secondary); font-size:20px; margin-bottom:30px;">
-        A Finance AI analisa seus extratos bancários e transforma movimentações em inteligência financeira para você identificar quanto a sua empresa pode gerar retiradas de lucros com segurança.
-      </p>
-      <a href="https://inteligenciafinanceira.streamlit.app" target="_blank" class="button-primary">Iniciar avaliação de 7 dias</a>
-    </div>
-  </div>
-</div>
-
-<section style="background: var(--light);">
+<!-- ===== HERO ===== -->
+<section class="hero">
   <div class="container">
-    <h2>Gestão baseada em dados bancários reais</h2>
-    <p class="section-sub">A Finance AI trabalha com o que realmente aconteceu nas suas movimentações bancárias. Você envia o extrato, nós fazemos o trabalho complexo.</p>
-    <div class="cards">
-      <div class="card">
-        <h3>Extração via IA</h3>
-        <p>Envie seus PDFs e nossa tecnologia extrai e organiza as movimentações automaticamente.</p>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-tag">Para pequenos empreendedores</div>
+        <h1>Quanto a sua empresa <span>pode te pagar</span> hoje, sem prejudicar o caixa?</h1>
+        <p>Você envia o extrato bancário em PDF. A IA extrai, classifica e analisa tudo. Em minutos, você descobre seu Score de Saúde Financeira e o valor exato que pode retirar como pró-labore — com segurança.</p>
+        <div class="hero-cta-group">
+          <a href="https://inteligenciafinanceira.streamlit.app" target="_blank" class="btn">Testar grátis por 7 dias</a>
+        </div>
+        <p class="hero-note">Sem cartão de crédito. Sem planilha para preencher.</p>
       </div>
-      <div class="card">
-        <h3>Classificação Estruturada</h3>
-        <p>Organização clara e profissional para uma análise financeira de alto nível.</p>
-      </div>
-      <div class="card">
-        <h3>Rastreabilidade</h3>
-        <p>O banco de dados manterá cada transação vinculada ao extrato original, garantindo integridade total dos dados.</p>
+      <div class="hero-img">
+        <svg viewBox="0 0 520 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Finance AI" style="width:100%; max-width:580px; display:block; margin:0 auto;">
+          <text y="72"
+            font-family="'Sora', 'Arial Black', sans-serif"
+            font-weight="800"
+            font-size="82"
+            letter-spacing="-1">
+            <tspan fill="#FFFFFF">FINANCE </tspan><tspan fill="#29B6F6">AI</tspan>
+          </text>
+        </svg>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background: var(--white);">
+<!-- ===== DOR ===== -->
+<section class="pain-section">
   <div class="container">
-    <h2>Como funciona</h2>
-    <p class="section-sub">Simples, profissional e direto ao ponto.</p>
-    <div class="cards">
-      <div class="card" style="border: none; box-shadow: none; background: transparent;">
-        <div class="step-number">1</div>
-        <h3>Envie seus extratos</h3>
-        <p>Importe os arquivos PDF gerados pelo seu banco diretamente na plataforma.</p>
-      </div>
-      <div class="card" style="border: none; box-shadow: none; background: transparent;">
-        <div class="step-number">2</div>
-        <h3>IA organiza tudo</h3>
-        <p>Nossa inteligência classifica as entradas e saídas sem que você precise digitar nada.</p>
-      </div>
-      <div class="card" style="border: none; box-shadow: none; background: transparent;">
-        <div class="step-number">3</div>
-        <h3>Analise e decida</h3>
-        <p>Receba seu Score Financeiro e use o Simulador para saber o valor exato da sua retirada segura.</p>
-      </div>
+    <div class="pain-box">
+      <div class="icon">😰</div>
+      <h3>Você sabe o quanto pode retirar da empresa hoje?</h3>
+      <p>A maioria dos pequenos empreendedores mistura o dinheiro pessoal com o da empresa — e quando vai ver, o caixa sumiu. Não é falta de esforço: é falta de dados. O Finance AI resolve isso com o extrato que você já tem no banco.</p>
     </div>
   </div>
 </section>
 
-<section style="background: var(--light);">
+<!-- ===== COMO FUNCIONA ===== -->
+<section class="steps-section">
   <div class="container">
-    <h2>Chega de "chutar" o seu salário</h2>
-    <p class="section-sub">
-      O erro número 1 do empreendedor é não saber o limite entre o lucro da empresa e o dinheiro do bolso. Resolvemos isso com precisão matemática.
-    </p>
-    <div class="cards">
-      <div class="card" style="border-left: 5px solid var(--accent);">
-        <h3>💰 Simulador de Retiradas</h3>
-        <p>Descubra o valor ideal para o seu pró-labore, garantindo que a empresa opere com fôlego financeiro.</p>
+    <h2>Como o Finance AI funciona</h2>
+    <p class="section-sub">5 passos simples. Você faz 2. A IA faz o resto.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Envie o extrato bancário em PDF</h3>
+          <p>Exporte o extrato direto do seu banco e carregue no Finance AI. Funciona com qualquer banco brasileiro. Você pode enviar os últimos 12 meses de uma vez.</p>
+          <span class="step-badge">Você faz isso</span>
+        </div>
       </div>
-      <div class="card" style="border-left: 5px solid var(--primary);">
-        <h3>📌 Score de Saúde Financeira</h3>
-        <p>Receba uma nota real da sua empresa baseada em dados bancários, sem suposições ou planilhas chatas.</p>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>A IA extrai e classifica cada movimentação</h3>
+          <p>Nossa inteligência lê o PDF e organiza automaticamente cada transação em categorias: receitas operacionais, custos, despesas administrativas, investimentos e financiamento. Zero digitação.</p>
+          <span class="step-badge">A IA faz isso</span>
+        </div>
       </div>
-      <div class="card" style="border-left: 5px solid var(--highlight);">
-        <h3>📉 Alerta de Onde Você Está Perdendo Dinheiro</h3>
-        <p>Identificamos onde o dinheiro está escapando através de taxas e custos desnecessários silenciosos.</p>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Você revisa — e identifica os gastos pessoais</h3>
+          <p>Em uma tela clara, você confere as classificações e corrige o que precisar. O passo mais importante: você marca quais saídas foram gastos seus (pró-labore). Isso separa o desempenho real da empresa das suas finanças pessoais. A IA aprende com cada correção para os próximos extratos.</p>
+          <span class="step-badge">Você faz isso</span>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section style="background: var(--white);">
-    <div class="container" style="text-align: center;">
-      <h2>Você não precisa de mais uma planilha</h2>
-      <p class="section-sub">
-        Você precisa de <strong>respostas</strong>. O Contador é caro e o ERP é chato de preencher. No Finance AI, você só envia o PDF do banco e nós fazemos o trabalho pesado.
-      </p>
-    </div>
-</section>
-
-<section style="background: var(--light);">
-  <div class="container">
-    <h2>Plano Profissional</h2>
-    <p class="section-sub">Tenha o diagnóstico completo com o melhor custo-benefício do mercado.</p>
-
-    <div class="cards" style="justify-content: center; display: flex; flex-wrap: wrap;">
-      <div class="card" style="flex: 1; max-width: 400px;">
-        <h3>Avaliação</h3>
-        <p><strong>Duração:</strong> 7 dias</p>
-        <p><strong>Histórico:</strong> Últimos 30 dias</p>
-        <p>Teste todas as funcionalidades e veja como a IA funciona.</p>
-        <div class="price-big">Período de teste</div>
-        <p style="color:var(--accent); font-weight: 700; font-size:14px;">Sem cartão de crédito na entrada</p>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Dashboard com Score e relatórios completos</h3>
+          <p>Seus dados ficam salvos e aparecem em um dashboard com Score de Saúde Financeira (0–100), gráficos de evolução do caixa operacional, de onde vem e para onde vai o dinheiro, onde você está perdendo e a Demonstração completa de Fluxo de Caixa.</p>
+          <span class="step-badge">A IA faz isso</span>
+        </div>
       </div>
-
-      <div class="card" style="flex: 1; max-width: 400px; border: 2px solid var(--highlight);">
-        <div class="badge">IMPERDÍVEL</div>
-        <h3>Profissional</h3>
-        <p><strong>Histórico:</strong> Pode enviar os últimos 12 meses de movimentações bancárias e seguir atualizdo mês a mês.</p>
-        <p><strong>Inclui:</strong> Score de Saúde Financeira, Como Seu Dinheiro Circula no Tempo, Onde Você Está Perdendo Dinheiro, De Onde Vem o Seu Dinheiro, Evolução Mensal do Fluxo de Caixa e Simulador de Retiradas.</p>
-        
-        <div class="price-big">R$ 34,90<span style="font-size:16px; color:var(--secondary); font-weight:400;"> /mês</span></div>
-        <p style="font-weight:600;">ou R$ 298 / ano</p>
-        
-        <div style="margin-top:20px; padding-top: 15px; border-top: 1px solid #eee;">
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/mp_logo.png" alt="Mercado Pago" style="height:28px;">
-                <span style="font-size:12px; color:var(--secondary); font-weight: 500;">Pagamento seguro via Mercado Pago.</span>
-            </div>
-            <div style="display: flex; gap: 8px;">
-            </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3>Simulador calcula sua retirada ideal</h3>
+          <p>Informe o quanto você precisa retirar e o simulador mostra: o que o negócio consegue pagar, o colchão de segurança necessário e o impacto da sua retirada no caixa — com sugestões práticas se a conta não fechar.</p>
+          <span class="step-badge">A IA faz isso</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div style="text-align:center; margin-top: 50px;">
-      <a class="button-primary" href="https://inteligenciafinanceira.streamlit.app" target="_blank">Comece Agora</a>
+<!-- ===== FUNCIONALIDADES ===== -->
+<section class="features-section">
+  <div class="container">
+    <h2>Tudo que você precisa para decidir com segurança</h2>
+    <p class="section-sub">Chega de "acho que está sobrando". Tome decisões baseadas nos seus dados bancários reais.</p>
+    <div class="features-grid">
+      <div class="feature-card feature-gold">
+        <div class="f-icon">📊</div>
+        <h3>Score de Saúde Financeira</h3>
+        <p>Uma nota de 0 a 100 calculada a partir das suas movimentações bancárias reais. 🏆 Ouro, 🥈 Prata, 🥉 Bronze, ⚠️ Alerta ou 🚨 Crítico — você sabe exatamente onde está e quanto falta para o próximo nível.</p>
+      </div>
+      <div class="feature-card feature-accent">
+        <div class="f-icon">💰</div>
+        <h3>Simulador de Retiradas</h3>
+        <p>Informe o valor que você precisa retirar e o sistema calcula se o negócio aguenta pagar, qual o colchão de segurança necessário e o que ajustar se a conta não fechar.</p>
+      </div>
+      <div class="feature-card feature-primary">
+        <div class="f-icon">📉</div>
+        <h3>Onde Você Está Perdendo Dinheiro</h3>
+        <p>Visualize as categorias que mais consomem o seu caixa — tarifas bancárias, despesas administrativas, pessoal — e identifique onde agir primeiro.</p>
+      </div>
+      <div class="feature-card feature-accent">
+        <div class="f-icon">📈</div>
+        <h3>Evolução Mensal do Caixa</h3>
+        <p>Gráficos de evolução do caixa operacional, de investimento e financiamento ao longo dos meses que você carregou. Veja tendências e padrões com clareza.</p>
+      </div>
+      <div class="feature-card feature-highlight">
+        <div class="f-icon">🔍</div>
+        <h3>De Onde Vem o Seu Dinheiro</h3>
+        <p>Visualize a composição das suas entradas e entenda quais fontes sustentam o negócio — e quais dependem de empréstimos ou aportes externos.</p>
+      </div>
+      <div class="feature-card feature-primary">
+        <div class="f-icon">🤖</div>
+        <h3>IA que Aprende com Você</h3>
+        <p>Cada correção que você faz na revisão é memorizada. Com o tempo, a IA aprende o padrão das suas transações e as próximas classificações chegam cada vez mais precisas.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
+<!-- ===== GAMIFICATION / SCORE ===== -->
+<section class="score-section">
   <div class="container">
-    <div class="cred">
-      <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png" alt="Hedgewise Logo">
-      <p>
-        Desenvolvido pela <strong>Hedgewise Consultoria</strong><br>
-        Inteligência financeira real para quem faz acontecer.<br><br>
-        📸 <a href="https://instagram.com/hedgewiseconsultoria" target="_blank">@hedgewiseconsultoria</a><br>
-        📩 <a href="mailto:contato@hedgewiseconsultoria.com.br">contato@hedgewiseconsultoria.com.br</a>
-      </p>
+    <h2>O seu negócio tem um Score. Qual é o seu?</h2>
+    <p class="section-sub">Calculamos sua saúde financeira em um número de 0 a 100 — e gamificamos para que evoluir seja motivador.</p>
+    <div class="badges-row">
+      <div class="badge-item">
+        <div class="b-icon">🏆</div>
+        <div class="b-label">Campeão</div>
+        <div class="b-range">Score 85–100</div>
+      </div>
+      <div class="badge-item">
+        <div class="b-icon">🥈</div>
+        <div class="b-label">Saudável</div>
+        <div class="b-range">Score 70–84</div>
+      </div>
+      <div class="badge-item">
+        <div class="b-icon">🥉</div>
+        <div class="b-label">No Caminho</div>
+        <div class="b-range">Score 55–69</div>
+      </div>
+      <div class="badge-item">
+        <div class="b-icon">⚠️</div>
+        <div class="b-label">Atenção</div>
+        <div class="b-range">Score 40–54</div>
+      </div>
+      <div class="badge-item">
+        <div class="b-icon">🚨</div>
+        <div class="b-label">Crítico</div>
+        <div class="b-range">Score 0–39</div>
+      </div>
+    </div>
+    <div class="score-highlight">
+      <p>O Score considera <strong>caixa operacional gerado, autossuficiência financeira, peso das retiradas sobre o faturamento e taxa de reinvestimento</strong> — tudo calculado direto das suas movimentações bancárias, sem suposições.</p>
     </div>
   </div>
-</footer>
+</section>
 
-</body>
-</html>
+<!-- ===== SIMULADOR EXAMPLE ===== -->
+<section class="simulator-section">
+  <div class="container">
+    <h2>Chega de "chutar" o pró-labore</h2>
+    <p class="section-sub">O Simulador de Retiradas usa os dados reais do seu fluxo de caixa para dizer quanto você pode retirar sem colocar o negócio em risco.</p>
+    <div class="sim-card">
+      <p style="font-size:15px; color:var(--secondary); margin-bottom: 8px; font-weight:600; font-family:'Sora',sans-serif;">EXEMPLO REAL DE USO</p>
+      <p style="font-size:17px; color:var(--primary); margin-bottom:24px;">Você informa que quer retirar R$ 5.000. O simulador mostra:</p>
+      <div class="sim-example">
+        <div class="sim-box" style="background:#E8F5E9;">
+          <div class="sb-label">🟢 Pode retirar</div>
+          <div class="sb-value" style="color:#2e7d32;">R$ 4.200</div>
+          <div class="sb-desc">sem impactar o caixa</div>
+        </div>
+        <div class="sim-box" style="background:#FFF8E1;">
+          <div class="sb-label">🟡 Colchão de segurança</div>
+          <div class="sb-value" style="color:#f57f17;">R$ 1.800</div>
+          <div class="sb-desc">reserva para imprevistos</div>
+        </div>
+        <div class="sim-box" style="background:#FDECEA;">
+          <div class="sb-label">🔴 Impacto da retirada</div>
+          <div class="sb-value" style="color:#c62828;">+R$ 800</div>
+          <div class="sb-desc">acima do que o caixa suporta</div>
+        </div>
+      </div>
+      <div style="margin-top:24px; padding:18px; background:var(--light); border-radius:10px; font-size:15px; color:var(--secondary);">
+        💡 <strong style="color:var(--primary);">O app sugere:</strong> "Ajustando as despesas administrativas, você resolve cerca de 60% da diferença. Se o negócio gerar mais R$ 800 no mês, essa retirada passa a caber com tranquilidade."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROVA SOCIAL ===== -->
+<section class="proof-section">
+  <div class="container">
+    <h2>O que dizem quem usa</h2>
+    <p class="section-sub">Pequenos empreendedores que pararam de chutar e começaram a decidir com dados.</p>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Finalmente entendi para onde ia o dinheiro da empresa. Descobri que estava me pagando mais do que o negócio conseguia sustentar."</p>
+        <div class="author"><!-- Nome do cliente --></div>
+        <div class="author-role"><!-- Segmento / cargo --></div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"O Score me motivou a melhorar. Saí do ⚠️ Alerta para 🥉 Bronze em 2 meses só controlando as retiradas."</p>
+        <div class="author"><!-- Nome do cliente --></div>
+        <div class="author-role"><!-- Segmento / cargo --></div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"A parte de subir o extrato e a IA classificar tudo foi o que me convenceu. Não preciso digitar nada, só conferir."</p>
+        <div class="author"><!-- Nome do cliente --></div>
+        <div class="author-role"><!-- Segmento / cargo --></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing-section">
+  <div class="container">
+    <h2>Planos</h2>
+    <p class="section-sub">Comece grátis e, se fizer sentido, assine por menos de R$ 1,20 por dia.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Avaliação</h3>
+        <p style="font-size:14px; color:var(--secondary);">Teste todas as funcionalidades</p>
+        <div class="price-amount">Grátis<span></span></div>
+        <p class="price-desc">7 dias · Últimos 30 dias de extrato · Sem cartão</p>
+        <ul class="price-features">
+          <li>Upload de extrato bancário em PDF</li>
+          <li>Extração e classificação por IA</li>
+          <li>Revisão e aprendizado da IA</li>
+          <li>Score de Saúde Financeira</li>
+          <li>Simulador de Retiradas</li>
+        </ul>
+        <a href="https://inteligenciafinanceira.streamlit.app" target="_blank" class="btn-outline" style="display:block; text-align:center;">Começar grátis</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">MELHOR CUSTO-BENEFÍCIO</div>
+        <h3>Profissional</h3>
+        <p style="font-size:14px; color:var(--secondary);">Para quem quer controle real todo mês</p>
+        <div class="price-amount">R$ 34,90<span> /mês</span></div>
+        <p class="price-desc">ou R$ 298/ano (economize 29%)</p>
+        <ul class="price-features">
+          <li>Histórico de até 12 meses de extratos</li>
+          <li>Atualização mensal contínua</li>
+          <li>Score de Saúde Financeira com gamificação</li>
+          <li>Dashboard completo com 6 relatórios</li>
+          <li>Demonstração Analítica de Fluxo de Caixa</li>
+          <li>Simulador de Retiradas com sugestões</li>
+          <li>IA que aprende com suas revisões</li>
+        </ul>
+        <a href="https://inteligenciafinanceira.streamlit.app" target="_blank" class="btn" style="display:block; text-align:center;">Assinar agora</a>
+        <div class="mp-row">
+          <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/mp_logo.png" alt="Mercado Pago">
+          <span>Pagamento seguro via Mercado Pago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section">
+  <div class="container">
+    <h2>Dúvidas frequentes</h2>
+    <p class="section-sub"></p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Funciona com qualquer banco?</div>
+        <div class="faq-a">Sim. O Finance AI aceita extratos em PDF de qualquer banco brasileiro. O processo de extração por IA é adaptado para reconhecer os diferentes formatos.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Preciso ter conhecimento de contabilidade?</div>
+        <div class="faq-a">Não. O app foi criado exatamente para quem não quer lidar com termos técnicos. A linguagem é coloquial, as análises são em português claro, e a revisão é guiada.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Meus dados bancários ficam seguros?</div>
+        <div class="faq-a">Seus dados são armazenados de forma segura no Supabase e não são compartilhados com terceiros. Você tem controle total sobre o que envia.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">O que é o Score de Saúde Financeira?</div>
+        <div class="faq-a">É uma nota de 0 a 100 calculada com base no caixa operacional gerado, na autossuficiência financeira, no peso das suas retiradas pessoais e na taxa de reinvestimento — tudo a partir dos seus dados bancários reais.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Preciso corrigir as classificações toda vez?</div>
+        <div class="faq-a">Não. A IA aprende com cada correção que você faz. Com o tempo, ela memoriza o padrão das suas transações e as classificações chegam cada vez mais certeiras — até zerar a necessidade de revisão.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Posso cancelar quando quiser?</div>
+        <div class="faq-a">Sim. Sem fidelidade, sem multa. Você cancela a qualquer momento pelo Mercado Pago.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta-final">
+  <div class="container">
+    <h2>Seu negócio merece um número, não um chute</h2>
+    <p>Envie o extrato, descubra seu Score e saiba exatamente quanto a empresa pode te pagar hoje.</p>
+    <a href="https://inteligenciafinanceira.streamlit.app" target="_blank" class="btn" style="font-size:18px; padding:18px 44px;">Começar avaliação gratuita</a>
+    <p style="color:rgba(255,255,255,0.4); font-size:13px; margin-top:16px;">7 dias grátis · Sem cartão de crédito</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">
+      <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png" alt="Hedgewise Consultoria">
+    </div>
+    <p>
+      Desenvolvido pela <strong>Hedgewise Consultoria</strong><br>
+      Inteligência financeira real para quem faz acontecer.<br><br>
+      📸 <a href="https://instagram.com/hedgewiseconsultoria" target="_blank">@hedgewiseconsultoria</a> &nbsp;·&nbsp;
+      📩 <a href="/cdn-cgi/l/email-protection#a1c2cecfd5c0d5cee1c9c4c5c6c4d6c8d2c4c2cecfd2d4cdd5ced3c8c08fc2cecc8fc3d3"><span class="__cf_email__" 
