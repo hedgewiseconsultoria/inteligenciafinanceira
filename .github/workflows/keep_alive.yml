@@ -2,7 +2,9 @@ name: Keep Streamlit Alive
 
 on:
   schedule:
+    # executa a cada 10 minutos
     - cron: "*/10 * * * *"
+
   workflow_dispatch:
 
 jobs:
@@ -10,17 +12,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Ping Streamlit App (browser-like)
+      - name: Ping App via Cloudflare (browser-like)
         run: |
-          echo "Acessando app..."
+          echo "Acessando app via domínio mascarado..."
 
-          curl https://inteligenciafinanceira.streamlit.app/ \
+          URL="https://folegoai.hedgewiseconsultoria.com.br/"
+
+          curl "$URL" \
             -L \
             --cookie-jar cookies.txt \
             --cookie cookies.txt \
             --max-redirs 10 \
-            --connect-timeout 10 \
-            --max-time 40 \
+            --connect-timeout 15 \
+            --max-time 60 \
+            --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122 Safari/537.36" \
+            --silent \
+            --output /dev/null \
+            --write-out "HTTP Status: %{http_code}\n"
+
+      - name: Segundo acesso (simular navegação)
+        run: |
+          echo "Segundo acesso..."
+
+          curl "https://folegoai.hedgewiseconsultoria.com.br/?keepalive=true" \
+            -L \
+            --cookie cookies.txt \
             --silent \
             --output /dev/null \
             --write-out "HTTP Status: %{http_code}\n"
