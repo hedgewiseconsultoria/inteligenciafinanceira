@@ -405,7 +405,7 @@
         <div class="trust-badges-hero">
             <div class="trust-badge-item">
                 <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-                Criptografia AES-256
+                Conexão Criptografada (SSL)
             </div>
             <div class="trust-badge-item">
                 <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
@@ -413,7 +413,7 @@
             </div>
             <div class="trust-badge-item">
                 <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                Infraestrutura Supabase
+                Infraestrutura Cloudflare & Supabase
             </div>
         </div>
       </div>
@@ -450,7 +450,7 @@
           <div style="margin-top: 15px; display: flex; gap: 10px; align-items: center; background: #fff; padding: 12px; border-radius: 8px; border: 1px dashed var(--accent);">
             <svg style="width:24px; height:24px; fill:var(--accent); flex-shrink:0;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
             <p style="font-size: 12px !important; line-height: 1.3 !important; color: var(--primary) !important; margin: 0 !important;">
-                <strong>Sua privacidade é prioridade:</strong> O processamento é criptografado. Seus dados de extrato são usados apenas para gerar sua inteligência financeira.
+                <strong>Sua privacidade é prioridade:</strong> O processamento é criptografado via SSL. Seus dados de extrato são usados apenas para gerar sua inteligência financeira.
             </p>
           </div>
 
@@ -687,17 +687,17 @@
       <div class="faq-item">
         <div class="faq-q">Meus dados bancários ficam seguros?</div>
         <div class="faq-a">
-          Seus dados são armazenados de forma segura no <strong>Supabase (Padrão AWS)</strong> e não são compartilhados com terceiros. Você tem controle total.
+          Seus dados são processados em ambiente seguro via <strong>Streamlit Cloud</strong> e armazenados no <strong>Supabase (Infraestrutura AWS)</strong>. Toda a comunicação é protegida por camadas de segurança da <strong>Cloudflare</strong>, garantindo que as informações trafeguem sob criptografia SSL/TLS de ponta a ponta. Você tem controle total e conformidade com a LGPD.
           <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
-            <span style="font-size: 11px; background: #f0f4f8; padding: 4px 10px; border-radius: 4px; border: 1px solid #d1d9e0; color: var(--primary); font-weight: 600;">🔐 Criptografia de ponta</span>
-            <span style="font-size: 11px; background: #f0f4f8; padding: 4px 10px; border-radius: 4px; border: 1px solid #d1d9e0; color: var(--primary); font-weight: 600;">📂 Acesso Somente Leitura</span>
+            <span style="font-size: 11px; background: #f0f4f8; padding: 4px 10px; border-radius: 4px; border: 1px solid #d1d9e0; color: var(--primary); font-weight: 600;">🔐 Conexão SSL Segura</span>
+            <span style="font-size: 11px; background: #f0f4f8; padding: 4px 10px; border-radius: 4px; border: 1px solid #d1d9e0; color: var(--primary); font-weight: 600;">📂 Proteção Cloudflare</span>
             <span style="font-size: 11px; background: #f0f4f8; padding: 4px 10px; border-radius: 4px; border: 1px solid #d1d9e0; color: var(--primary); font-weight: 600;">⚖️ Conformidade LGPD</span>
           </div>
         </div>
       </div>
       <div class="faq-item">
         <div class="faq-q">O que é o Score de Saúde Financeira?</div>
-        <div class="faq-a">É uma nota de 0 a 100 calculada com base no caixa operacional gerado, na autossuficiência financeira, no peso das suas retiradas pessoais e na taxa de reinvestimento — tudo a partir dos seus dados bancários reais.</div>
+        <div class="faq-a">É uma nota de 0 a 100 calculada com base no caixa operacional gerado, na autossuficiência financeira, no peso das suas superfaturadas pessoais e na taxa de reinvestimento — tudo a partir dos seus dados bancários reais.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Preciso corrigir as classificações toda vez?</div>
