@@ -379,12 +379,122 @@
     footer p { font-size: 15px; color: var(--secondary); line-height: 1.8; }
     footer a { color: var(--accent); font-weight: 600; text-decoration: none; }
 
+    /* ===== APP SCREENSHOTS ===== */
+
+    /* --- Hero screens: original --- */
+    .hero-screens {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: flex-end;
+      margin-top: 40px;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-screen-item {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 32px rgba(0,0,0,0.35);
+      border: 2px solid rgba(255,255,255,0.1);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .hero-screen-item:hover { transform: translateY(-4px); }
+    .hero-screen-item img { display: block; width: 100%; }
+    .hero-screen-item.main { width: 160px; }
+    .hero-screen-item.side { width: 105px; opacity: 0.82; }
+
+    /* --- Step screenshots: menores, tela completa visível --- */
+    .step-screenshot {
+      margin-top: 18px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(10,35,66,0.12);
+      border: 1.5px solid #dde3ea;
+      max-width: 200px;
+    }
+    .step-screenshot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* --- Dashboard mosaic: grid contido, imagens completas --- */
+    .dashboard-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 40px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .dash-shot {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 14px rgba(10,35,66,0.09);
+      border: 1.5px solid #e2e8ed;
+      transition: transform 0.25s, box-shadow 0.25s;
+      background: #fff;
+    }
+    .dash-shot:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(10,35,66,0.13); }
+    .dash-shot.wide { grid-column: 1 / -1; }
+    .dash-shot img { display: block; width: 100%; height: auto; }
+    .dash-shot .dash-label {
+      background: var(--light);
+      padding: 7px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--secondary);
+      font-family: 'Sora', sans-serif;
+      border-top: 1px solid #e2e8ed;
+    }
+
+    /* --- Simulator screenshots: menores, tela completa visível --- */
+    .sim-screenshots {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .sim-shot {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(10,35,66,0.10);
+      border: 1.5px solid #dde3ea;
+      width: 240px;
+      flex-shrink: 0;
+      background: #fff;
+    }
+    .sim-shot img { display: block; width: 100%; height: auto; }
+    .sim-shot .sim-label {
+      background: var(--light);
+      padding: 7px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--secondary);
+      font-family: 'Sora', sans-serif;
+      border-top: 1px solid #e2e8ed;
+      text-align: center;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media(max-width:640px) {
       .hero-inner { flex-direction: column-reverse; gap: 30px; }
       .hero h1 { font-size: 28px; }
       .sim-example { grid-template-columns: 1fr; }
       .price-card.featured { transform: none; }
+      .hero-screens { gap: 10px; }
+      .hero-screen-item.main { width: 140px; }
+      .hero-screen-item.side { width: 90px; }
+      .dashboard-mosaic { grid-template-columns: 1fr; max-width: 100%; }
+      .sim-screenshots { flex-direction: column; align-items: center; }
+      .sim-shot { width: 100%; max-width: 320px; }
+      .step-screenshot { max-width: 100%; }
     }
   </style>
 </head>
@@ -401,7 +511,20 @@
           <a href="https://inteligenciafinanceira.streamlit.app/?start=true" class="btn">Testar grátis por 7 dias</a>
         </div>
         <p class="hero-note">Sem cartão de crédito. Sem planilha para preencher.</p>
-        
+
+        <!-- Hero Screenshots -->
+        <div class="hero-screens">
+          <div class="hero-screen-item side">
+            <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Entrada.png" alt="Tela de entrada do Fôlego AI">
+          </div>
+          <div class="hero-screen-item main">
+            <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Dashboard2.png" alt="Dashboard do Fôlego AI">
+          </div>
+          <div class="hero-screen-item side">
+            <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Simulador1.png" alt="Simulador de Retiradas">
+          </div>
+        </div>
+
         <div class="trust-badges-hero">
             <div class="trust-badge-item">
                 <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
@@ -455,6 +578,9 @@
           </div>
 
           <span class="step-badge">Você faz isso</span>
+          <div class="step-screenshot">
+            <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Envio.png" alt="Tela de envio do extrato">
+          </div>
         </div>
       </div>
       <div class="step">
@@ -471,6 +597,9 @@
           <h3>Você revisa — e identifica os gastos pessoais</h3>
           <p>Em uma tela clara, você confere as classificações e corrige o que precisar. O passo mais importante: você marca quais saídas foram gastos seus (pró-labore). Isso separa o desempenho real da empresa das suas finanças pessoais. O Fôlego AI aprende com cada correção para os próximos extratos.</p>
           <span class="step-badge">Você faz isso</span>
+          <div class="step-screenshot">
+            <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Revisão.png" alt="Tela de revisão das transações">
+          </div>
         </div>
       </div>
       <div class="step">
@@ -479,6 +608,9 @@
           <h3>Dashboard com Score e relatórios completos</h3>
           <p>Seus dados ficam salvos e aparecem em um dashboard com Score de Saúde Financeira (0–100), gráficos de evolução do caixa operacional, de onde vem e para onde vai o dinheiro, onde você está perdendo e a Demonstração completa de Fluxo de Caixa.</p>
           <span class="step-badge">O Fôlego AI faz isso</span>
+          <div class="step-screenshot">
+            <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Dashboard2.png" alt="Dashboard com Score de Saúde Financeira">
+          </div>
         </div>
       </div>
       <div class="step">
@@ -487,6 +619,9 @@
           <h3>Simulador calcula sua retirada ideal</h3>
           <p>Informe o quanto você precisa retirar e o simulador mostra: o que o negócio consegue pagar, o colchão de segurança necessário e o impacto da sua retirada no caixa — com sugestões práticas se a conta não fechar.</p>
           <span class="step-badge">O Fôlego AI faz isso</span>
+          <div class="step-screenshot">
+            <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Simulador1.png" alt="Simulador de Retiradas">
+          </div>
         </div>
       </div>
     </div>
@@ -529,6 +664,8 @@
         <p>Cada correção que você faz na revisão é memorizada. Com o tempo, O Fôlego AI aprende o padrão das suas transações e as próximas classificações chegam cada vez mais precisas.</p>
       </div>
     </div>
+
+
   </div>
 </section>
 
@@ -597,6 +734,8 @@
         💡 <strong style="color:var(--primary);">O app sugere:</strong> "Ajustando as despesas administrativas, você resolve cerca de 60% da diferença. Se o negócio gerar mais R$ 800 no mês, essa retirada passa a caber com tranquilidade."
       </div>
     </div>
+
+
   </div>
 </section>
 
