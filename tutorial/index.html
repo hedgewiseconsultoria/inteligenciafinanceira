@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Tutorial Completo — Fôlego AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --primary:#0A2342;
+  --secondary:#4F6D7A;
+  --accent:#2CA58D;
+  --highlight:#E63946;
+  --light:#F4F7F9;
+  --white:#FFFFFF;
+  --radius:16px;
+  --shadow:0 6px 30px rgba(10,35,66,0.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#fff;
+  color:var(--primary);
+  line-height:1.7;
+}
+
+h1,h2,h3,h4{
+  font-family:'Sora',sans-serif;
+}
+
+.container{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  padding:0 24px;
+}
+
+section{
+  padding:90px 0;
+}
+
+section h2{
+  font-size:38px;
+  margin-bottom:16px;
+  text-align:center;
+  font-weight:800;
+}
+
+.section-sub{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 50px;
+  color:var(--secondary);
+  font-size:18px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#0A2342 0%,#143b66 100%);
+  color:#fff;
+  padding:100px 0 80px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle, rgba(44,165,141,0.22) 0%, transparent 70%);
+  top:-200px;
+  right:-150px;
+  border-radius:50%;
+}
+
+.hero-tag{
+  display:inline-block;
+  background:rgba(44,165,141,0.16);
+  color:#74f1d3;
+  border:1px solid rgba(44,165,141,0.35);
+  padding:8px 18px;
+  border-radius:50px;
+  margin-bottom:24px;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+
+.hero h1{
+  font-size:52px;
+  line-height:1.15;
+  margin-bottom:24px;
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.hero h1 span{
+  color:#66e0c1;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  color:rgba(255,255,255,.82);
+  font-size:20px;
+}
+
+.logo-band{
+  padding:40px 0;
+  text-align:center;
+  border-bottom:1px solid #e8edf2;
+}
+
+.logo-band img{
+  height:90px;
+}
+
+.steps-section{
+  background:var(--light);
+}
+
+.steps-grid{
+  max-width:860px;
+  margin:auto;
+}
+
+.step{
+  display:flex;
+  gap:28px;
+  padding:38px 0;
+  border-bottom:1px solid #dfe6eb;
+}
+
+.step:last-child{
+  border-bottom:none;
+}
+
+.step-num{
+  min-width:54px;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:20px;
+}
+
+.step-content h3{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.step-content p{
+  color:var(--secondary);
+  margin-bottom:14px;
+}
+
+.step-badge{
+  display:inline-block;
+  padding:5px 12px;
+  border-radius:40px;
+  background:rgba(44,165,141,0.12);
+  color:var(--accent);
+  font-weight:700;
+  font-size:12px;
+  margin-top:8px;
+}
+
+.step-screenshot{
+  margin-top:20px;
+  max-width:230px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #dfe6eb;
+  box-shadow:var(--shadow);
+}
+
+.step-screenshot img{
+  width:100%;
+  display:block;
+}
+
+.info-box{
+  background:#fff;
+  border:1px dashed var(--accent);
+  border-radius:12px;
+  padding:16px;
+  margin-top:18px;
+  color:var(--primary);
+  font-size:14px;
+}
+
+.plan-section{
+  background:#fff;
+}
+
+.plan-group{
+  margin-bottom:60px;
+}
+
+.plan-header{
+  background:linear-gradient(135deg,#0A2342,#163d68);
+  color:#fff;
+  padding:28px;
+  border-radius:18px;
+  margin-bottom:24px;
+}
+
+.plan-header h3{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.plan-header p{
+  color:rgba(255,255,255,.82);
+}
+
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+
+.account-card{
+  background:#fff;
+  border:1px solid #e5ebef;
+  border-radius:16px;
+  padding:24px;
+  box-shadow:var(--shadow);
+  transition:.25s;
+}
+
+.account-card:hover{
+  transform:translateY(-4px);
+}
+
+.account-code{
+  display:inline-block;
+  background:rgba(44,165,141,.12);
+  color:var(--accent);
+  font-weight:800;
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:30px;
+  margin-bottom:14px;
+}
+
+.account-card h4{
+  font-size:20px;
+  margin-bottom:12px;
+}
+
+.account-card p{
+  color:var(--secondary);
+  font-size:15px;
+}
+
+.report-section{
+  background:var(--light);
+}
+
+.report-box{
+  background:#fff;
+  border-radius:18px;
+  padding:34px;
+  margin-bottom:28px;
+  box-shadow:var(--shadow);
+}
+
+.report-box h3{
+  font-size:28px;
+  margin-bottom:16px;
+}
+
+.report-box p{
+  color:var(--secondary);
+  margin-bottom:16px;
+}
+
+.highlight{
+  color:var(--accent);
+  font-weight:700;
+}
+
+.score-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+  margin-top:28px;
+}
+
+.score-card{
+  background:#fff;
+  border-radius:18px;
+  padding:24px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.score-card .emoji{
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.score-card h4{
+  margin-bottom:6px;
+}
+
+.score-card p{
+  color:var(--secondary);
+  font-size:14px;
+}
+
+.sim-boxes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin-top:24px;
+}
+
+.sim-card{
+  padding:24px;
+  border-radius:16px;
+}
+
+.sim-green{
+  background:#E8F5E9;
+}
+
+.sim-yellow{
+  background:#FFF8E1;
+}
+
+.sim-red{
+  background:#FDECEA;
+}
+
+.footer{
+  background:#0A2342;
+  color:#fff;
+  text-align:center;
+  padding:70px 20px;
+}
+
+.footer img{
+  height:90px;
+  margin-bottom:18px;
+}
+
+.footer p{
+  color:rgba(255,255,255,.75);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+  font-size:36px;
+}
+
+.step{
+  flex-direction:column;
+}
+
+section{
+  padding:70px 0;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="container">
+
+    <div class="hero-tag">
+      Tutorial Completo do Fôlego AI
+    </div>
+
+    <h1>
+      Aprenda a usar o <span>Fôlego AI</span> para recuperar o
+      <span>fôlego financeiro</span> da sua empresa
+    </h1>
+
+    <p>
+      Este guia foi criado para micro e pequenos empreendedores que querem entender melhor o caixa da empresa, separar finanças pessoais do negócio e tomar decisões com mais segurança.
+    </p>
+
+  </div>
+</section>
+
+<div class="logo-band">
+  <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/folego_ai.png">
+</div>
+
+<section class="steps-section">
+<div class="container">
+
+<h2>Como o Fôlego AI funciona</h2>
+
+<p class="section-sub">
+5 passos simples. Você faz 2. O Fôlego AI faz o resto.
+</p>
+
+<div class="steps-grid">
+
+<div class="step">
+
+<div class="step-num">1</div>
+
+<div class="step-content">
+
+<h3>Envie o extrato bancário em PDF</h3>
+
+<p>
+Baixe o extrato diretamente do seu banco e envie no Fôlego AI. O sistema funciona com qualquer banco brasileiro e você pode carregar até 12 meses de movimentações de uma só vez.
+</p>
+
+<div class="info-box">
+🔒 <strong>Sua privacidade é prioridade:</strong>
+o processamento é criptografado via SSL e os dados são utilizados exclusivamente para gerar sua inteligência financeira.
+</div>
+
+<span class="step-badge">Você faz isso</span>
+
+<div class="step-screenshot">
+<img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Envio.png">
+</div>
+
+</div>
+</div>
+
+<div class="step">
+
+<div class="step-num">2</div>
+
+<div class="step-content">
+
+<h3>O Fôlego AI extrai e classifica cada movimentação</h3>
+
+<p>
+A inteligência do app lê automaticamente o PDF do extrato e organiza cada transação em categorias financeiras:
+receitas, custos, despesas, investimentos, empréstimos, aportes e retiradas.
+</p>
+
+<p>
+Tudo isso sem planilhas e sem digitação manual.
+</p>
+
+<span class="step-badge">O Fôlego AI faz isso</span>
+
+</div>
+</div>
+
+<div class="step">
+
+<div class="step-num">3</div>
+
+<div class="step-content">
+
+<h3>Você revisa — e identifica os gastos pessoais</h3>
+
+<p>
+Você revisa as classificações sugeridas e informa quais saídas representam retiradas pessoais, pró-labore ou despesas particulares pagas pela empresa.
+</p>
+
+<p>
+Esse passo é fundamental para separar o desempenho real da empresa das finanças do empreendedor.
+</p>
+
+<p>
+Com o tempo, o Fôlego AI aprende o padrão das suas movimentações e melhora automaticamente as classificações futuras.
+</p>
+
+<span class="step-badge">Você faz isso</span>
+
+<div class="step-screenshot">
+<img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Revisão.png">
+</div>
+
+</div>
+</div>
+
+<div class="step">
+
+<div class="step-num">4</div>
+
+<div class="step-content">
+
+<h3>Dashboard com Score e relatórios completos</h3>
+
+<p>
+Depois da revisão, o app gera automaticamente relatórios profissionais, gráficos financeiros e o Score de Saúde Financeira.
+</p>
+
+<p>
+Você consegue enxergar:
+</p>
+
+<ul style="padding-left:20px; color:var(--secondary);">
+<li>Evolução do caixa operacional;</li>
+<li>Principais gastos;</li>
+<li>Fontes de receita;</li>
+<li>Retiradas pessoais;</li>
+<li>Fluxo de caixa acumulado;</li>
+<li>Demonstração analítica completa.</li>
+</ul>
+
+<span class="step-badge">O Fôlego AI faz isso</span>
+
+<div class="step-screenshot">
+<img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Dashboard2.png">
+</div>
+
+</div>
+</div>
+
+<div class="step">
+
+<div class="step-num">5</div>
+
+<div class="step-content">
+
+<h3>Simulador calcula sua retirada ideal</h3>
+
+<p>
+O simulador mostra quanto a empresa consegue sustentar de retirada sem sufocar o caixa.
+</p>
+
+<p>
+Ele também calcula:
+</p>
+
+<ul style="padding-left:20px; color:var(--secondary);">
+<li>o colchão de segurança recomendado;</li>
+<li>o impacto da retirada no caixa;</li>
+<li>sugestões práticas para equilibrar as finanças.</li>
+</ul>
+
+<span class="step-badge">O Fôlego AI faz isso</span>
+
+<div class="step-screenshot">
+<img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Simulador1.png">
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="plan-section">
+<div class="container">
+
+<h2>Plano de contas utilizado pelo Fôlego AI</h2>
+
+<p class="section-sub">
+O Fôlego AI organiza automaticamente as movimentações financeiras da empresa em categorias que ajudam você a entender de onde vem o dinheiro, para onde ele vai e quais movimentos realmente fortalecem ou sufocam o caixa.
+</p>
+
+<!-- OPERACIONAL -->
+
+<div class="plan-group">
+
+<div class="plan-header">
+<h3>OP — Atividades Operacionais</h3>
+<p>
+Movimentações ligadas ao funcionamento normal da empresa. Inclui receitas, custos e despesas do dia a dia do negócio.
+</p>
+</div>
+
+<div class="cards-grid">
+
+<div class="account-card">
+<div class="account-code">OP-01</div>
+<h4>Receitas de Vendas</h4>
+<p>
+Entradas de dinheiro provenientes da venda de produtos.
+Essas receitas representam o faturamento principal do negócio.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">OP-02</div>
+<h4>Receitas de Serviços</h4>
+<p>
+Valores recebidos pela prestação de serviços.
+Muito comum em empresas de consultoria, manutenção, clínicas e profissionais liberais.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">OP-03</div>
+<h4>Outras Receitas Operacionais</h4>
+<p>
+Entradas operacionais pontuais ou não recorrentes.
+Exemplo: bônus, reembolsos ou pequenas receitas extraordinárias.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">OP-04</div>
+<h4>Custos Operacionais</h4>
+<p>
+Gastos diretamente ligados à elaboração e entrega do produto ou serviço.
+Exemplo: mercadorias, matéria-prima, produção, demais materiais/insumos, fretes, salários e encargos de pessoal ligado à operação e etc.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">OP-05</div>
+<h4>Despesas Administrativas</h4>
+<p>
+Despesas de estrutura e gestão da empresa.
+Inclui aluguel, internet, contador, sistemas e escritório.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">OP-06</div>
+<h4>Despesas Comerciais</h4>
+<p>
+Gastos relacionados às vendas e marketing.
+Inclui anúncios, tráfego pago, comissões e divulgação.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">OP-07</div>
+<h4>Despesas com Pessoal</h4>
+<p>
+Salários, benefícios, encargos trabalhistas e custos relacionados à equipe.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">OP-08</div>
+<h4>Impostos e Contribuições</h4>
+<p>
+Tributos pagos pela empresa sobre faturamento, folha ou operação.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">OP-09</div>
+<h4>Tarifas Bancárias e Serviços</h4>
+<p>
+Taxas bancárias, tarifas financeiras e custos com maquininhas e bancos.
+</p>
+</div>
+
+</div>
+</div>
+
+<!-- INVESTIMENTO -->
+
+<div class="plan-group">
+
+<div class="plan-header">
+<h3>INV — Atividades de Investimento</h3>
+<p>
+Movimentações relacionadas à aquisição de ativos e aplicações visando crescimento, estrutura ou rentabilidade da empresa.
+</p>
+</div>
+
+<div class="cards-grid">
+
+<div class="account-card">
+<div class="account-code">INV-01</div>
+<h4>Aquisição de Imobilizado</h4>
+<p>
+Compra de máquinas, equipamentos, computadores, veículos e outros bens duráveis.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">INV-02</div>
+<h4>Aplicações Financeiras</h4>
+<p>
+Valores destinados a investimentos financeiros ou reservas aplicadas para rendimento.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">INV-03</div>
+<h4>Receitas Financeiras</h4>
+<p>
+Entradas provenientes dos rendimentos de aplicações e investimentos financeiros.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">INV-04</div>
+<h4>Alienação de Ativos</h4>
+<p>
+Venda de bens ou ativos da empresa, como veículos, equipamentos ou máquinas.
+</p>
+</div>
+
+</div>
+</div>
+
+<!-- FINANCIAMENTO -->
+
+<div class="plan-group">
+
+<div class="plan-header">
+<h3>FIN — Atividades de Financiamento</h3>
+<p>
+Movimentações ligadas a empréstimos, financiamentos e relação financeira entre sócios e empresa.
+</p>
+</div>
+
+<div class="cards-grid">
+
+<div class="account-card">
+<div class="account-code">FIN-01</div>
+<h4>Empréstimos Recebidos</h4>
+<p>
+Entradas provenientes de empréstimos bancários ou financiamentos.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">FIN-02</div>
+<h4>Pagamento de Empréstimos</h4>
+<p>
+Saídas financeiras utilizadas para pagar parcelas de empréstimos e financiamentos.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">FIN-03</div>
+<h4>Juros sobre Empréstimos</h4>
+<p>
+Custos financeiros relacionados aos juros cobrados pelos financiamentos.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">FIN-04</div>
+<h4>Aporte de Sócios</h4>
+<p>
+Dinheiro colocado pelos sócios na empresa para reforçar o caixa ou financiar crescimento.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">FIN-05</div>
+<h4>Retirada de Sócios / Pró-labore</h4>
+<p>
+Valores retirados pelos sócios da empresa para uso pessoal.
+Essa separação é fundamental para entender a saúde real do negócio.
+</p>
+</div>
+
+</div>
+</div>
+
+<!-- NEUTRO -->
+
+<div class="plan-group">
+
+<div class="plan-header">
+<h3>NE — Ajustes e Transferências Internas</h3>
+<p>
+Movimentações que não representam receita nem despesa real da empresa.
+Servem apenas para organização financeira.
+</p>
+</div>
+
+<div class="cards-grid">
+
+<div class="account-card">
+<div class="account-code">NE-01</div>
+<h4>Transferências entre Contas</h4>
+<p>
+Movimentações internas entre contas bancárias da própria empresa.
+</p>
+</div>
+
+<div class="account-card">
+<div class="account-code">NE-02</div>
+<h4>Ajustes e Estornos</h4>
+<p>
+Correções financeiras e reversões de lançamentos incorretos.
+</p>
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="report-section">
+<div class="container">
+
+<h2>Como interpretar os relatórios do Fôlego AI</h2>
+
+<p class="section-sub">
+Os relatórios do Fôlego AI foram criados para transformar dados bancários em decisões práticas para o empreendedor.
+</p>
+
+<div class="report-box">
+
+<h3>Diagnóstico do período</h3>
+
+<p>
+O diagnóstico mostra uma visão geral da saúde financeira da empresa durante o período analisado.
+</p>
+
+<p>
+O principal foco está em três pontos:
+</p>
+
+<p>
+<span class="highlight">Caixa Operacional:</span>
+mostra se a operação do negócio gera dinheiro suficiente para se sustentar.
+</p>
+
+<p>
+<span class="highlight">Retiradas do período:</span>
+mostra quanto os sócios retiraram da empresa para despesas pessoais ou pró-labore.
+</p>
+
+<p>
+<span class="highlight">Independência Financeira:</span>
+indica se a empresa consegue sobreviver com o próprio caixa ou se depende constantemente de empréstimos e aportes.
+</p>
+
+</div>
+
+<div class="report-box">
+
+<h3>🏆 Score de Saúde Financeira</h3>
+
+<p>
+O Score transforma a saúde financeira da empresa em uma pontuação simples de entender.
+</p>
+
+<p>
+Ele considera fatores como geração de caixa, peso das retiradas pessoais, dependência financeira e reinvestimento no negócio.
+</p>
+
+<div class="score-grid">
+
+<div class="score-card">
+<div class="emoji">🏆</div>
+<h4>Campeão</h4>
+<p>85 a 100 pontos</p>
+</div>
+
+<div class="score-card">
+<div class="emoji">🥈</div>
+<h4>Saudável</h4>
+<p>70 a 84 pontos</p>
+</div>
+
+<div class="score-card">
+<div class="emoji">🥉</div>
+<h4>No Caminho</h4>
+<p>55 a 69 pontos</p>
+</div>
+
+<div class="score-card">
+<div class="emoji">⚠️</div>
+<h4>Atenção</h4>
+<p>40 a 54 pontos</p>
+</div>
+
+<div class="score-card">
+<div class="emoji">🚨</div>
+<h4>Crítico</h4>
+<p>0 a 39 pontos</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="report-box">
+
+<h3>Evolução mensal do fluxo de caixa</h3>
+
+<p>
+Esse gráfico mostra como o caixa evoluiu ao longo dos meses.
+</p>
+
+<p>
+O Fôlego AI separa o fluxo financeiro em:
+</p>
+
+<ul style="padding-left:22px; color:var(--secondary);">
+<li><strong>Caixa Operacional:</strong> dinheiro gerado pela operação do negócio;</li>
+<li><strong>Caixa de Investimentos:</strong> compras de ativos, aplicações e investimentos;</li>
+<li><strong>Caixa de Financiamentos:</strong> empréstimos, aportes e movimentações financeiras dos sócios.</li>
+</ul>
+
+</div>
+
+<div class="report-box">
+
+<h3>Gráfico de Maiores Saídas do Período</h3>
+
+<p>
+Mostra quais categorias mais consumiram o caixa da empresa.
+</p>
+
+<p>
+Isso ajuda o empreendedor a enxergar rapidamente onde estão os maiores pesos financeiros do negócio.
+</p>
+
+</div>
+
+<div class="report-box">
+
+<h3>Principais Fontes de Receita</h3>
+
+<p>
+Mostra quais categorias geraram mais entradas financeiras.
+</p>
+
+<p>
+Ajuda a entender quais atividades realmente sustentam o caixa da empresa.
+</p>
+
+</div>
+
+<div class="report-box">
+
+<h3>Caixa Gerado x Retiradas</h3>
+
+<p>
+Esse gráfico compara quanto a empresa gerou de caixa operacional e quanto os sócios retiraram.
+</p>
+
+<p>
+Quando as retiradas ficam acima da capacidade do negócio, o caixa começa a perder fôlego.
+</p>
+
+</div>
+
+<div class="report-box">
+
+<h3>Fluxo de Caixa Acumulado</h3>
+
+<p>
+Mostra a evolução acumulada do saldo financeiro da empresa ao longo do tempo.
+</p>
+
+<p>
+Esse relatório ajuda a visualizar tendências de crescimento, estabilidade ou deterioração financeira.
+</p>
+
+</div>
+
+<div class="report-box">
+
+<h3>Demonstração Analítica — Evolução Mensal do Fluxo de Caixa</h3>
+
+<p>
+Esse é um relatório financeiro profissional que detalha toda a movimentação da empresa por atividade:
+</p>
+
+<ul style="padding-left:22px; color:var(--secondary);">
+<li>Atividades Operacionais;</li>
+<li>Atividades de Investimento;</li>
+<li>Atividades de Financiamento.</li>
+</ul>
+
+<p>
+Ele permite enxergar exatamente:
+</p>
+
+<ul style="padding-left:22px; color:var(--secondary);">
+<li>como o caixa foi gerado;</li>
+<li>onde o dinheiro foi consumido;</li>
+<li>qual área mais impactou o resultado;</li>
+<li>como a empresa evoluiu mês após mês.</li>
+</ul>
+
+</div>
+
+<div class="report-box">
+
+<h3>Como funciona o Simulador de Retiradas</h3>
+
+<p>
+O simulador utiliza os dados reais do caixa da empresa para calcular quanto pode ser retirado sem comprometer a saúde financeira.
+</p>
+
+<div class="sim-boxes">
+
+<div class="sim-card sim-green">
+<h4>🟢 Pode retirar</h4>
+<p>
+Mostra o valor que a empresa consegue pagar mantendo equilíbrio financeiro.
+</p>
+</div>
+
+<div class="sim-card sim-yellow">
+<h4>🟡 Colchão de segurança</h4>
+<p>
+Representa a reserva recomendada para proteger o caixa contra imprevistos e oscilações.
+</p>
+</div>
+
+<div class="sim-card sim-red">
+<h4>🔴 Efeito da retirada</h4>
+<p>
+Mostra o impacto da retirada desejada sobre o caixa da empresa.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<footer class="footer">
+
+<img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/folego_ai.png">
+
+<p>
+Tutorial oficial do Fôlego AI<br>
+Desenvolvido pela Hedgewise Consultoria
+</p>
+
+</footer>
+
+</body>
+</html>
