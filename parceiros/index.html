@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Programa de Parceiros Fôlego AI — Lucratividade na Contabilidade Consultiva para MEIs</title>
+  <meta name="description" content="Transforme MEIs e pequenos empreendedores em uma nova fonte de receita recorrente e lucrativa para o seu escritório de contabilidade com automação por IA.">
+  <meta name="keywords" content="Fôlego AI, contabilidade consultiva, escritórios de contabilidade, rentabilizar MEI, automação financeira contábil, programa de parceiros contabilidade, inteligência artificial contabilidade">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Programa de Parceiros Fôlego AI — Lucratividade na Contabilidade Consultiva">
+  <meta property="og:description" content="Ofereça acompanhamento financeiro com mais escala, mais valor percebido e menos trabalho operacional.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/folego_ai.png">
+  <meta property="og:type" content="website">
+
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0A2342;
+      --secondary: #4F6D7A;
+      --accent: #2CA58D;  
+      --highlight: #E63946;
+      --light: #F4F7F9;
+      --white: #FFFFFF;
+      --radius: 14px;
+      --shadow: 0 6px 30px rgba(10,35,66,0.09);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--white); color: var(--primary); line-height: 1.6; font-family: 'DM Sans', sans-serif; }
+    h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
+    .container { width: 100%; max-width: 1080px; margin: auto; padding: 0 24px; }
+    section { padding: 90px 0; }
+    section h2 { font-size: 34px; font-weight: 800; margin-bottom: 14px; text-align: center; color: var(--primary); }
+    .section-sub { text-align: center; font-size: 18px; color: var(--secondary); max-width: 680px; margin: 0 auto 48px; }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 17px;
+      font-family: 'Sora', sans-serif;
+      transition: all 0.25s;
+      box-shadow: 0 6px 20px rgba(44,165,141,0.35);
+      letter-spacing: 0.01em;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(44,165,141,0.45); }
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: 'Sora', sans-serif;
+      transition: all 0.25s;
+    }
+    .btn-outline:hover { background: var(--primary); color: white; }
+
+    .trust-badges-hero {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .trust-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .trust-badge-item svg { width: 18px; height: 18px; fill: #5ECDB5; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #0A2342 0%, #1a3a5c 60%, #0e2f4f 100%);
+      padding: 90px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -120px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(44,165,141,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner { display: flex; align-items: center; justify-content: center; }
+    .hero-text { width: 100%; max-width: 1000px; margin: 0 auto; text-align: center; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(44,165,141,0.2);
+      border: 1px solid rgba(44,165,141,0.5);
+      color: #5ECDB5;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Sora', sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: #5ECDB5; }
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 36px;
+      max-width: 720px;
+      line-height: 1.7;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: center; }
+
+    /* --- Hero screens --- */
+    .hero-screens {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: flex-end;
+      margin-top: 40px;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-screen-item {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 32px rgba(0,0,0,0.35);
+      border: 2px solid rgba(255,255,255,0.1);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .hero-screen-item:hover { transform: translateY(-4px); }
+    .hero-screen-item img { display: block; width: 100%; }
+    .hero-screen-item.main { width: 160px; }
+    .hero-screen-item.side { width: 105px; opacity: 0.82; }
+
+    /* ===== LOGO BAND ===== */
+    .logo-band {
+      background: var(--white);
+      padding: 40px 0;
+      text-align: center;
+      border-bottom: 1px solid #eef1f4;
+    }
+    .logo-band img { height: 100px; display: block; margin: 0 auto; }
+
+    /* ===== PAIN SECTION ===== */
+    .pain-section { background: var(--white); }
+    .pain-box {
+      background: linear-gradient(135deg, #fff5f5, #fff);
+      border: 1.5px solid #ffd0d3;
+      border-radius: var(--radius);
+      padding: 40px 48px;
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .pain-box .icon { font-size: 48px; margin-bottom: 16px; }
+    .pain-box h3 { font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 14px; }
+    .pain-box p { font-size: 17px; color: var(--secondary); line-height: 1.7; }
+
+    /* ===== BENEFITS (HOW IT WORKS STYLE) ===== */
+    .steps-section { background: var(--light); }
+    .steps-grid { display: flex; flex-direction: column; gap: 0; max-width: 820px; margin: 0 auto; }
+    .step {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      padding: 32px 0;
+      border-bottom: 1px solid #e2e8ed;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 4px 14px rgba(44,165,141,0.25);
+    }
+    .step-content { flex: 1; }
+    .step-content h3 { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 7px; }
+    .step-content p { font-size: 16px; color: var(--secondary); line-height: 1.65; }
+    
+    /* ===== FEATURES / DIFERENCIAIS ===== */
+    .features-section { background: var(--white); }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
+    .feature-card {
+      background: var(--white);
+      border: 1.5px solid #e8edf2;
+      border-radius: var(--radius);
+      padding: 30px 26px;
+      transition: all 0.25s;
+      box-shadow: var(--shadow);
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(10,35,66,0.12); }
+    .feature-card .f-icon { font-size: 34px; margin-bottom: 14px; }
+    .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--primary); }
+    .feature-card p { font-size: 15px; color: var(--secondary); line-height: 1.65; }
+    .feature-accent { border-top: 3px solid var(--accent); }
+    .feature-primary { border-top: 3px solid var(--primary); }
+    .feature-highlight { border-top: 3px solid var(--highlight); }
+    .feature-gold { border-top: 3px solid #F5A623; }
+
+    /* ===== MODELOS DE PARCERIA ===== */
+    .simulator-section { background: var(--light); }
+    .sim-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 44px 40px;
+      max-width: 820px;
+      margin: 0 auto;
+      border: 1.5px solid #e8edf2;
+    }
+    .sim-example {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .sim-box {
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .sim-box .sb-label { font-size: 14px; color: var(--primary); font-weight: 700; margin-bottom: 8px; font-family: 'Sora', sans-serif; text-transform: uppercase;}
+    .sim-box .sb-value { font-size: 24px; font-weight: 800; font-family: 'Sora', sans-serif; }
+    .sim-box .sb-desc { font-size: 13px; color: var(--secondary); margin-top: 8px; line-height: 1.4; }
+
+    /* ===== SCORE / GAMIFICATION ===== */
+    .score-section { background: var(--primary); }
+    .score-section h2, .score-section .section-sub { color: white; }
+    .score-section .section-sub { color: rgba(255,255,255,0.7); }
+    .badges-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .badge-item {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      text-align: center;
+      min-width: 130px;
+      transition: transform 0.2s;
+    }
+    .badge-item:hover { transform: translateY(-4px); }
+    .badge-item .b-icon { font-size: 38px; margin-bottom: 8px; }
+    .badge-item .b-label { font-size: 13px; font-weight: 700; font-family: 'Sora', sans-serif; color: rgba(255,255,255,0.85); }
+    .badge-item .b-range { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+    .score-highlight {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .score-highlight p { font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.7; }
+    .score-highlight strong { color: #5ECDB5; }
+
+    /* ===== FAQ ===== */
+    .faq-section { background: var(--white); }
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid #e8edf2; padding: 22px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 10px; font-family: 'Sora', sans-serif; }
+    .faq-a { font-size: 15px; color: var(--secondary); line-height: 1.7; }
+
+    /* ===== CTA FINAL ===== */
+    .cta-final {
+      background: linear-gradient(135deg, #0A2342 0%, #1a3a5c 100%);
+      padding: 90px 0;
+      text-align: center;
+    }
+    .cta-final h2 { color: white; font-size: 38px; margin-bottom: 16px; }
+    .cta-final p { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 620px; margin: 0 auto 36px; }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--white); border-top: 1px solid #eee; padding: 60px 0; text-align: center; }
+    .footer-logo img { height: 100px; margin-bottom: 16px; }
+    footer p { font-size: 15px; color: var(--secondary); line-height: 1.8; }
+    footer a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+    @media(max-width:640px) {
+      .hero-inner { flex-direction: column-reverse; gap: 30px; }
+      .hero h1 { font-size: 28px; }
+      .sim-example { grid-template-columns: 1fr; }
+      .hero-screens { gap: 10px; }
+      .hero-screen-item.main { width: 140px; }
+      .hero-screen-item.side { width: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-tag">Contabilidade Consultiva e Escala</div>
+        <h1>Transforme MEIs e Pequenos Negócios em uma <span>Nova Fonte de Receita Lucrativa</span> para seu Escritório.</h1>
+        <p>Ofereça acompanhamento financeiro estratégico com mais escala, mais valor percebido pelo cliente e <strong>zero trabalho operacional extra</strong> usando inteligência artificial contábil.</p>
+        <div class="hero-cta-group">
+          <a href="https://wa.me/557193591028" class="btn">Quero ser parceiro</a>
+        </div>
+
+        <div class="hero-screens">
+          <div class="hero-screen-item side">
+            <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Entrada.png" alt="Tela de entrada do Fôlego AI">
+          </div>
+          <div class="hero-screen-item main">
+            <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Dashboard2.png" alt="Dashboard do Fôlego AI">
+          </div>
+          <div class="hero-screen-item side">
+            <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/Simulador1.png" alt="Simulador de Retiradas">
+          </div>
+        </div>
+
+        <div class="trust-badges-hero">
+            <div class="trust-badge-item">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                Contabilidade Prática via IA
+            </div>
+            <div class="trust-badge-item">
+                <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                Segurança de Dados e LGPD
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="logo-band">
+  <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/folego_ai.png" alt="Fôlego AI Contábil">
+</div>
+
+<section class="pain-section">
+  <div class="container">
+    <div class="pain-box">
+      <div class="icon">💡</div>
+      <h3>O problema NÃO é atender MEIs. O problema é fazer isso de forma lucrativa.</h3>
+      <p>Mesmo sem a obrigatoriedade da escrituração contábil formal, milhares de pequenos empreendedores têm dúvidas todos os dias: <em>"Quanto posso retirar do negócio?"</em>, <em>"Estou misturando contas?"</em>, <em>"Tenho lucro real?"</em>. E quem eles procuram para responder? <strong>O contador.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="steps-section">
+  <div class="container">
+    <h2>Por que fazer parceria com o Fôlego AI?</h2>
+    <p class="section-sub">Unimos tecnologia e contabilidade para gerar valor de ambos os lados.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Educação Financeira Prática para o Cliente</h3>
+          <p>O cliente passa a entender a importância de separar os gastos pessoais (pró-labore) através do nosso assistente de IA, gerando dados muito mais limpos para o fechamento fiscal e contábil do seu escritório.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Agilidade Gigante no BPO Financeiro</h3>
+          <p>Se você oferece BPO Financeiro, use o Fôlego AI para categorizar extratos bancários em segundos em vez de preencher planilhas manuais. Nossa inteligência aprende com cada revisão, economizando hours de digitação.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Retiradas de Sócios Baseadas em Dados Legais</h3>
+          <p>Chega de suposições. O app calcula o Score de Saúde Financeira e o Simulador de Retiradas impede que o cliente sufoque a empresa — embasando suas orientações técnicas com relatórios visuais claros.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section">
+  <div class="container">
+    <h2>Recursos prontos para o seu Escritório</h2>
+    <p class="section-sub">A tecnologia que vai posicionar sua contabilidade como uma consultoria estratégica.</p>
+    <div class="features-grid">
+      <div class="feature-card feature-gold">
+        <div class="f-icon">📊</div>
+        <h3>Score Visual da Empresa</h3>
+        <p>Apresente o Score de Saúde Financeira (0-100) nas suas reuniões de consultoria e mostre com clareza o nível de risco real do caixa do cliente.</p>
+      </div>
+      <div class="feature-card feature-accent">
+        <div class="f-icon">🤖</div>
+        <h3>Leitura Automática de PDF</h3>
+        <p>O sistema processa e divide receitas operacionais, custos e despesas administrativas em qualquer extrato de banco brasileiro. Zero digitação.</p>
+      </div>
+      <div class="feature-card feature-primary">
+        <div class="f-icon">🛡️</div>
+        <h3>Segurança e LGPD</h3>
+        <p>Processamento criptografado via SSL, infraestrutura robusta no Supabase (AWS) e Cloudflare. Os dados do seu cliente estão totalmente seguros.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="simulator-section">
+  <div class="container">
+    <h2>Como funciona o Modelo de Parceria</h2>
+    <p class="section-sub">Escolha o formato que melhor se adapta ao modelo de negócio do seu escritório.</p>
+    <div class="sim-card">
+      <div class="sim-example">
+        <div class="sim-box" style="background:#E8F5E9;">
+          <div class="sb-label">🤝 Modelo Indicador</div>
+          <div class="sb-value" style="color:#2e7d32;">Ganho Recorrente</div>
+          <div class="sb-desc">Você indica o Fôlego AI para a sua base de clientes. Eles ganham desconto na assinatura e você recebe uma comissão mensal sobre as mensalidades pagas.</div>
+        </div>
+        <div class="sim-box" style="background:#FFF8E1;">
+          <div class="sb-label">💼 Modelo Integrado / BPO</div>
+          <div class="sb-value" style="color:#f57f17;">Valor Agregado</div>
+          <div class="sb-desc">Você contrata licenças em lote com condições exclusivas de atacado e inclui a ferramenta como um diferencial tecnológico no seu escopo de BPO ou Contabilidade Consultiva.</div>
+        </div>
+      </div>
+      <div style="margin-top:24px; padding:18px; background:var(--light); border-radius:10px; font-size:15px; color:var(--secondary); text-align: center;">
+        💡 <strong>Benefício Extra:</strong> Todos os contadores parceiros recebem treinamento técnico da ferramenta e materiais prontos para divulgação na base de clientes.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="score-section">
+  <div class="container">
+    <h2>Transforme a Saúde Financeira em Métricas Claras</h2>
+    <p class="section-sub">O sistema pontua o negócio do cliente de 0 a 100 através de um Score focado em conformidade e sustentabilidade.</p>
+    <div class="badges-row">
+      <div class="badge-item">
+        <div class="b-icon">🏆</div>
+        <div class="b-label">Campeão</div>
+        <div class="b-range">Score 85–100</div>
+      </div>
+      <div class="badge-item">
+        <div class="b-icon">🥈</div>
+        <div class="b-label">Saudável</div>
+        <div class="b-range">Score 70–84</div>
+      </div>
+      <div class="badge-item">
+        <div class="b-icon">🥉</div>
+        <div class="b-label">No Caminho</div>
+        <div class="b-range">Score 55–69</div>
+      </div>
+      <div class="badge-item">
+        <div class="b-icon">⚠️</div>
+        <div class="b-label">Atenção</div>
+        <div class="b-range">Score 40–54</div>
+      </div>
+      <div class="badge-item">
+        <div class="b-icon">🚨</div>
+        <div class="b-label">Crítico</div>
+        <div class="b-range">Score 0–39</div>
+      </div>
+    </div>
+    <div class="score-highlight">
+      <p>Facilite a comunicação! Seu cliente entende o desempenho dele através de níveis gamificados, aproximando o empreendedor do escritório e gerando <strong>altíssimo valor percebido pelos seus serviços consultivos.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <h2>Dúvidas frequentes de Parceiros</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Há algum custo para o escritório se cadastrar como parceiro?</div>
+        <div class="faq-a">Não. O cadastro no Programa de Parceiros do Fôlego AI é totalmente gratuito. Você só precisa passar por uma rápida validação com o nosso time para alinharmos o melhor formato para seus clientes.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como acompanho as indicações e comissões?</div>
+        <div class="faq-a">Você receberá um cupom ou link exclusivo de parceiro. Toda assinatura realizada por ele será vinculada diretamente à sua conta de parceiro, garantindo o repasse da recorrência mensal com total transparência.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">O Fôlego AI substitui meus softwares ERP ou de escrita fiscal?</div>
+        <div class="faq-a">Não. O Fôlego AI é uma ferramenta de inteligência financeira e de apoio à contabilidade consultiva. Ele atua na camada de atendimento, traduzindo dados brutos de extratos em análises ricas e visuais que aproximam o seu cliente final da tomada de decisão segura, preenchendo o gargalo comercial e de tempo operacional.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como funciona o processamento e a segurança dos dados dos clientes?</div>
+        <div class="faq-a">Os dados são processados sob criptografia ponta a ponta (SSL/TLS). Atuamos em total conformidade com a LGPD. Os extratos bancários em PDF enviados servem única e exclusivamente para a execução das análises automatizadas do respectivo painel de controle do cliente ou do contador parceiro.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Qual o tempo necessário para treinar minha equipe a usar a ferramenta?</div>
+        <div class="faq-a">A curva de aprendizado é praticamente zero. A plataforma foi desenhada de forma intuitiva, sem termos técnicos ou interfaces pesadas. Em poucos minutos, qualquer colaborador entende o processo de upload, revisão automatizada por IA e interpretação rápida do dashboard.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <h2>Seja um Contador Parceiro do Fôlego AI</h2>
+    <p>Automatize o operacional massivo de MEIs e pequenos empreendedores, gerando novos serviços recorrentes sem inflar a folha de pagamento.</p>
+    <a href="https://wa.me/557193591028" class="btn" style="font-size:18px; padding:18px 44px;">Seja um Parceiro Fôlego AI</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-logo">
+      <img src="https://raw.githubusercontent.com/hedgewiseconsultoria/inteligenciafinanceira/main/logo.png" alt="Hedgewise Consultoria">
+    </div>
+    <p>
+      Programa de Parceiros desenvolvido pela <strong>Hedgewise Consultoria</strong><br>
+      Inteligência financeira real para quem faz acontecer.<br><br>
+      📸 <a href="https://instagram.com/hedgewiseconsultoria" target="_blank">@hedgewiseconsultoria</a> &nbsp;·&nbsp;
+      📩 <a href="mailto:contato@hedgewiseconsultoria.com.br">contato@hedgewiseconsultoria.com.br</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
